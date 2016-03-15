@@ -15,12 +15,9 @@ legend{
 	float:left;
 	margin-bottom: 60px;
 	padding-left: 50px;
-	margin-top: 30px;
+	margin-top: 60px;
 }
 
-.teste{
-	background: grey;
-}
 
 .borda{
 	border-color: red;
@@ -54,7 +51,7 @@ legend{
 
 .login{
 	margin-top: 30px;
-	background: lightblue;
+	background: none;
 }
 
 
@@ -64,17 +61,67 @@ legend{
 
 .box_login{
 	float:right;
-
+	background: none;
+	width: 48%;
+	margin-right: 20px;
+	margin-top: 30px;
 }
 
+.box_login input{
+	float: left;
+	width: 65%;
+	margin-bottom: 5px;
+}
 
 .btn_login{
 	background: none;
-	
+	float:right;
 	border: 0;	
+	margin-top: -28px;
 }
 
+.btn_ads{
+	font-family: abel;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 700;
+	border: none;
+	padding: 10px;
+	cursor:pointer;
+	
+}
 
+.btn_ads a{
+	color:#fff;
+	margin-bottom: 10px;
+}
 
+.btn_ads:hover a{
+	text-decoration: none;
+	color:#fff;
+}
 
+.btn_orange{ 	
+	background: orange;
+	color:#fff;
+	box-shadow: 0 5px #FF8C00;
+	margin-bottom: 10px;
+}
+
+.btn_orange:hover{
+	background: #FF8C00;
+	color:#fff;
+	box-shadow: 0 5px #FF4500;
+	text-decoration: none;
+}
+
+.btn_orange:active{
+	position: relative;
+	top: 5px;
+	box-shadow:none;
+}
+
+.teste a{
+	width: 70px;
+}
 
