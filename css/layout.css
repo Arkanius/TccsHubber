@@ -1,0 +1,80 @@
+body{
+	font-family: abel;
+	
+}
+
+legend{
+	border-bottom:#ff0000;
+}
+
+.titulo{
+	font-family: abel;
+	font-size: 38px;
+	display: block;
+	color:black;
+	float:left;
+	margin-bottom: 60px;
+	padding-left: 50px;
+	margin-top: 30px;
+}
+
+.teste{
+	background: grey;
+}
+
+.borda{
+	border-color: red;
+	border-radius: 10px;
+	margin-bottom: 20px;
+}
+
+.main{
+	padding-right: 50px;
+	padding-left: 50px;
+}
+
+.clear{
+	clear:both;
+}
+
+.download img{
+	height: 80px;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.txt_download{
+	font-family: abel;
+	font-size: 18px;
+	text-align: center;
+	font-weight: bold;
+
+}
+
+.login{
+	margin-top: 30px;
+	background: lightblue;
+}
+
+
+.imagem{
+	height: 50px;
+}
+
+.box_login{
+	float:right;
+
+}
+
+
+.btn_login{
+	background: none;
+	
+	border: 0;	
+}
+
+
+
+
+
