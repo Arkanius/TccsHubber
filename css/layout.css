@@ -121,7 +121,52 @@ legend{
 	box-shadow:none;
 }
 
-.teste a{
-	width: 70px;
+
+
+.txt_postagens{
+	font-family: abel;
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+	color:orange;
+	margin-top: 50px;
+	margin-bottom: 50px;
 }
 
+.box_tcc{
+	border:groove;
+	border-width: 2px;
+	border-radius: 10px;
+	border-color: orange;
+	padding: 10px 10px 10px 10px;
+	margin-bottom: 15px;
+}
+
+.box_tcc a{
+	font-family: abel;
+	font-size: 25px;
+	text-decoration: none;
+	color: black;
+}
+
+.txt_curso{
+	font-family: abel;
+	font-size: 20px;
+	font-weight: 500;
+	color:black;
+	display: block;
+}
+
+.footer{
+	background: orange;
+	height: 35px;
+	width: 100%;
+}
+
+.copyright{
+	font-family: abel;
+	font-size: 20px;
+	text-align: center;
+	display: block;
+	color:#fff;
+}
