@@ -18,6 +18,11 @@ legend{
 	margin-top: 60px;
 }
 
+.titulo a{
+	color: black;
+}
+
+
 
 .borda{
 	border-color: red;
@@ -169,4 +174,14 @@ legend{
 	text-align: center;
 	display: block;
 	color:#fff;
+}
+
+.txt_categoria{
+	font-family: abel;
+	font-size: 48px;
+	font-weight: 700;
+	text-align: center;
+	display: block;
+	color: orange;
+	margin: 80px 0 80px 0;
 }
