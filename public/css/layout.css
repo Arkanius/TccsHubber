@@ -79,10 +79,8 @@ legend{
 }
 
 .btn_login{
-	background: none;
-	float:right;
-	border: 0;	
-	margin-top: -28px;
+	margin-bottom: 10px;
+	display: block;
 }
 
 .btn_ads{
@@ -185,3 +183,38 @@ legend{
 	color: orange;
 	margin: 80px 0 80px 0;
 }
+
+.borda_login{
+	color: orange;
+}
+
+.box-login{
+	width: 400px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.form_login{
+	padding-left: 95px;
+	padding-right: 95px;
+}
+
+.txt_login input{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.txt_senha input{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+
+.txt_admin{
+	text-align: center;
+	color: orange;
+	font-weight: 700;
+	font-family: abel;
+	margin-bottom: 20px;
+}
+
