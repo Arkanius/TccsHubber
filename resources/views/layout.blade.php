@@ -21,23 +21,6 @@
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
 						<h1 class="titulo">Sistema Academico de TCC</h1>
 					</div>
-
-					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5 login">
-						<form name="form_login" id="form_login" method="post" action="">
-							<div class="box_login">
-
-								<div class="txt_usuario">
-									<input type="text" name="usuario" id="txt_usuario" placeholder="Usuário"/>			
-								</div>
-								<div class="clear"></div>							
-								<div class="txt_senha">
-									<input type="password" name="senha" id="txt_senha" placeholder="Senha"/>
-								</div>
-								<button class="btn_login"><img src="imagens/botoes/login.png" class="imagem"></button>	
-							</div>
-						</form>
-					</div>
-				</div>
 			</div>
 		</header>
 
