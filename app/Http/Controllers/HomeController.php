@@ -26,4 +26,9 @@ class HomeController extends Controller
     {
         return view('admin.dashboard');
     }
+
+    public function createUsers()
+    {
+        return view('admin.register');
+    }
 }
