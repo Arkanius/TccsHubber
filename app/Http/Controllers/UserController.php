@@ -21,26 +21,29 @@ class UserController extends Controller
     public function saveUsers(Request $request)
     {
     	$validator = Validator::make($request->all(), [
-    		'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
+    		'name'     => 'required|max:255',
+            'email'    => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
     	]);
 
-    	if ($validator->fails()) { 
-    		//dd($validator);
-    		Redirect::to('/cadastrar')->with('message', $validator->messages->messages);
+    	if ($validator->fails()) {
+    		return redirect('cadastrar')
+    						->with('message', 'Erro ao cadastrar o usuário. Por favor tente novamente')
+    						->with('alert-class', 'alert-warning')
+    						->with('errors', $validator->errors());
     	}
 
 		$this->user->name     = $request['name'];
 		$this->user->email    = $request['email'];
 		$this->user->password = bcrypt($request['password']);
+		//$this->user->role     = $request['password'];
 
 		$this->user->save();
 
-		Session::flash('message', 'Usuário cadastrado com sucesso!'); 
-        Session::flash('alert-class', 'alert-success');
-
-        return redirect('admin');
+        return redirect('admin')
+        				->with('message', 'Usuário cadastrado com sucesso!')
+    					->with('alert-class', 'alert-success');
     }
+
 
 }

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
-use App\Http\User;
+use App\User;
 use Validator;
 
 class HomeController extends Controller
@@ -32,5 +32,14 @@ class HomeController extends Controller
     public function createUsers()
     {
         return view('admin.register');
+    }
+
+    public function usersManagement()
+    {   
+        $data = [
+            'users' => User::all()
+        ];
+        
+        return view('admin.gerenciarusuarios', $data);
     }
 }
