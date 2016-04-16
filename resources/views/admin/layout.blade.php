@@ -229,12 +229,21 @@
                 </li>
             </ul>
         </header>
-        <!-- / CONTENT AREA -->
-        @yield('content')
+
+    @if(Session::has('message'))
+    <div class="alert {{ Session::get('alert-class', 'alert-info') }}">
+      {{ Session::get('message') }}
+      <a href="#" class="close" data-dismiss="alert" aria-label="close" title="close" onclick="$('.alert').hide()">×</a>
+    </div>
+    @endif
+    
+
+    <!-- / CONTENT AREA -->
+    @yield('content')
         
-        <footer class="container-fluid footer">
-            <a href="#" class="pull-right scrollToTop"><i class="fa fa-chevron-up"></i></a>
-        </footer>        
+    <footer class="container-fluid footer">
+        <a href="#" class="pull-right scrollToTop"><i class="fa fa-chevron-up"></i></a>
+    </footer>        
     
     </section>
     <!-- Content Block Ends Here (right box)-->
