@@ -34,15 +34,16 @@
 
         <nav class="navigation">
             <ul class="list-unstyled">
-                <li class="active"><a href="#"><i class="fa fa-bookmark-o"></i><span class="nav-label">PENDENTES</span></a></li>
+                <li class="active"><a href="/admin"><i class="fa fa-bookmark-o"></i><span class="nav-label">PENDENTES</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ok"></i> <span class="nav-label">APROVADOS</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ban-circle"></i> <span class="nav-label">REPROVADOS</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
-                <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-off"></i> <span class="nav-label">SAIR</span></a></li>
+                <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-user   "></i> <span class="nav-label">GERENCIAR USUARIOS</span></a></li>
+                <li class="has-submenu"><a href="/logout"><i class="glyphicon glyphicon-off"></i> <span class="nav-label">SAIR</span></a></li>
             </ul>
         </nav>
-          
+
     </aside>
     <!-- Aside Ends-->
     
