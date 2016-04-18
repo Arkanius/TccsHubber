@@ -230,6 +230,10 @@
             </ul>
         </header>
 
+    <!-- JQuery v1.9.1 -->
+    <script src="assetsadmin/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+
+    
     @if(Session::has('message'))
     <div class="alert {{ Session::get('alert-class', 'alert-info') }}">
       {{ Session::get('message') }}
@@ -248,8 +252,6 @@
     </section>
     <!-- Content Block Ends Here (right box)-->
 
-    <!-- JQuery v1.9.1 -->
-    <script src="assetsadmin/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
     <script src="assetsadmin/js/plugins/underscore/underscore-min.js"></script>
     <!-- Bootstrap -->
     <script src="assetsadmin/js/bootstrap/bootstrap.min.js"></script>

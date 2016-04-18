@@ -45,5 +45,14 @@ class UserController extends Controller
     					->with('alert-class', 'alert-success');
     }
 
+    public function deleteUser(Request $request)
+    {
+    	$id = $request['user_id'];
+
+    	$users = $this->user->where(['id' => $id, 'role' => 0])->delete();
+
+    	echo json_encode($users);
+    }
+
 
 }
