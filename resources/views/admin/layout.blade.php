@@ -13,23 +13,23 @@
     <meta name="author" content="Victor Gazotti & Igor Veras">
 
     <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="assetsadmin/css/bootstrap/bootstrap.css" /> 
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/bootstrap/bootstrap.css" /> 
 
     <!-- Calendar Styling  -->
-    <link rel="stylesheet" href="assetsadmin/css/plugins/calendar/calendar.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/plugins/calendar/calendar.css" />
 
     <!-- Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
 
     <!-- Base Styling  -->
-    <link rel="stylesheet" href="assetsadmin/css/app/app.v1.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
 
 </head>
 <body data-ng-app>
 
     <aside class="left-panel">
         <div class="user text-center">
-            <img src="assetsadmin/images/avtar/user.png" class="img-circle" alt="..." width="200" height="50">
+            <img src="{{url('/')}}/assetsadmin/images/avtar/user.png" class="img-circle" alt="..." width="200" height="50">
         </div>
 
         <nav class="navigation">
@@ -39,7 +39,9 @@
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ban-circle"></i> <span class="nav-label">REPROVADOS</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
+                @if (Auth::user()->role == 1) 
                 <li class="has-submenu"><a href="/gerenciar-usuarios"><i class="glyphicon glyphicon-user"></i> <span class="nav-label">GERENCIAR USUARIOS</span></a></li>
+                @endif
                 <li class="has-submenu"><a href="/logout"><i class="glyphicon glyphicon-off"></i> <span class="nav-label">SAIR</span></a></li>
             </ul>
         </nav>
@@ -231,7 +233,7 @@
         </header>
 
     <!-- JQuery v1.9.1 -->
-    <script src="assetsadmin/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/assetsadmin/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
 
     
     @if(Session::has('message'))
@@ -252,40 +254,40 @@
     </section>
     <!-- Content Block Ends Here (right box)-->
 
-    <script src="assetsadmin/js/plugins/underscore/underscore-min.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/underscore/underscore-min.js"></script>
     <!-- Bootstrap -->
-    <script src="assetsadmin/js/bootstrap/bootstrap.min.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap.min.js"></script>
 
     <!-- Globalize -->
-    <script src="assetsadmin/js/globalize/globalize.min.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/globalize/globalize.min.js"></script>
 
     <!-- NanoScroll -->
-    <script src="assetsadmin/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
 
     <!-- Chart JS -->
-    <script src="assetsadmin/js/plugins/DevExpressChartJS/dx.chartjs.js"></script>
-    <script src="assetsadmin/js/plugins/DevExpressChartJS/world.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/dx.chartjs.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/world.js"></script>
     <!-- For Demo Charts -->
-    <script src="assetsadmin/js/plugins/DevExpressChartJS/demo-charts.js"></script>
-    <script src="assetsadmin/js/plugins/DevExpressChartJS/demo-vectorMap.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/demo-charts.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/demo-vectorMap.js"></script>
 
     <!-- Sparkline JS -->
-    <script src="assetsadmin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <!-- For Demo Sparkline -->
-    <script src="assetsadmin/js/plugins/sparkline/jquery.sparkline.demo.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.demo.js"></script>
 
     <!-- Angular JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
     <!-- ToDo List Plugin -->
-    <script src="assetsadmin/js/angular/todo.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/angular/todo.js"></script>
 
     <!-- Calendar JS -->
-    <script src="assetsadmin/js/plugins/calendar/calendar.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar.js"></script>
     <!-- Calendar Conf -->
-    <script src="assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
+    <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
 
     <!-- Custom JQuery -->
-    <script src="assetsadmin/js/app/custom.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/assetsadmin/js/app/custom.js" type="text/javascript"></script>
 
 </body>
 </html>

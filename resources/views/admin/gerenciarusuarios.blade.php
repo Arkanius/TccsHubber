@@ -27,7 +27,7 @@
 		        <td>{{ $user->email }}</td>
 		        <td>{{ $user->role == 1 ? 'Administrador' : 'Usuário' }}</td>
 		        <td>
-		        	<a class="btn btn-success" href="{{$user->id}}">Editar</a>
+		        	<a class="btn btn-success" href="/editar/{{$user->id}}">Editar</a>
 		        	<a class="btn btn-danger" href="{{$user->id}}" data-confirm="Deseja realmente excluir o usuário?">Excluir</a>
 		        </td>
       		</tr>
