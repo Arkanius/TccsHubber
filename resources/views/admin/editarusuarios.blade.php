@@ -7,7 +7,7 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Editar Usuário</div>
                 <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/cadastrar') }}">
+                    <form class="form-horizontal" role="form" method="POST" action="{{ url('/editar') }}">
                         {!! csrf_field() !!}
 
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
@@ -37,6 +37,14 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Acesso total:</label>
+                            <div class="col-md-6">
+                                <input type="checkbox" name="role" value="1" {{ $users->role == 1 ? "checked" : "" }}>
+                            </div>
+                        </div>
+
+                        <input type="hidden" value="{{ $users->id }}" name="user_id">
 
                         <div class="form-group">
                             <div class="col-md-6 col-md-offset-4">

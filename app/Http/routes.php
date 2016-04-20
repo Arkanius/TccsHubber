@@ -30,8 +30,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/cadastrar', 'HomeController@createUsers');
     Route::post('/cadastrar', 'UserController@saveUsers');
+   
     Route::post('/deleteuser', 'UserController@deleteUser');
+    
     Route::get('/editar/{id}', 'HomeController@editUser');
+    Route::post('/editar', 'UserController@editUser');
 
     Route::get('/gerenciar-usuarios', 'HomeController@usersManagement');
 });

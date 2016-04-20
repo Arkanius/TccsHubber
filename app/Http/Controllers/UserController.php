@@ -36,7 +36,7 @@ class UserController extends Controller
 		$this->user->name     = $request['name'];
 		$this->user->email    = $request['email'];
 		$this->user->password = bcrypt($request['password']);
-		//$this->user->role     = $request['password'];
+		$this->user->role     = empty($request['role'] ? 0 : 1);
 
 		$this->user->save();
 
@@ -49,9 +49,24 @@ class UserController extends Controller
     {
     	$id = $request['user_id'];
 
-    	$users = $this->user->where(['id' => $id, 'role' => 0])->delete();
+    	$users = $this->user->where(['id' => $id])->delete();
 
     	echo json_encode($users);
+    }
+
+    public function editUser(Request $request)
+    {
+        $id = $request['user_id'];
+
+        $users = $this->user->where(['id' => $id])
+                            ->update(['name' => $request['name'], 
+                                     'email' => $request['email'],
+                                     'role' => $request['role']]);
+
+        return redirect('gerenciar-usuarios')
+                        ->with('message', 'Usuário atualizado com sucesso!')
+                        ->with('alert-class', 'alert-success');
+
     }
 
 

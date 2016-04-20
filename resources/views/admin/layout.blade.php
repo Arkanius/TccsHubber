@@ -12,17 +12,11 @@
     <meta name="description" content="Painel administrativo KNT">
     <meta name="author" content="Victor Gazotti & Igor Veras">
 
-    <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/bootstrap/bootstrap.css" /> 
-
-    <!-- Calendar Styling  -->
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/plugins/calendar/calendar.css" />
-
-    <!-- Fonts  -->
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
-
-    <!-- Base Styling  -->
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
+    <link href="{{url('/')}}/assetsadmin/css/bootstrap/bootstrap-switch.css" rel="stylesheet">
 
 </head>
 <body data-ng-app>
@@ -255,39 +249,26 @@
     <!-- Content Block Ends Here (right box)-->
 
     <script src="{{url('/')}}/assetsadmin/js/plugins/underscore/underscore-min.js"></script>
-    <!-- Bootstrap -->
     <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap.min.js"></script>
-
-    <!-- Globalize -->
     <script src="{{url('/')}}/assetsadmin/js/globalize/globalize.min.js"></script>
-
-    <!-- NanoScroll -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/nicescroll/jquery.nicescroll.min.js"></script>
-
-    <!-- Chart JS -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/dx.chartjs.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/world.js"></script>
-    <!-- For Demo Charts -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/demo-charts.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/demo-vectorMap.js"></script>
-
-    <!-- Sparkline JS -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
-    <!-- For Demo Sparkline -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.demo.js"></script>
-
-    <!-- Angular JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
-    <!-- ToDo List Plugin -->
     <script src="{{url('/')}}/assetsadmin/js/angular/todo.js"></script>
-
-    <!-- Calendar JS -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar.js"></script>
-    <!-- Calendar Conf -->
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
-
-    <!-- Custom JQuery -->
     <script src="{{url('/')}}/assetsadmin/js/app/custom.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap-switch.min" type="text/javascript"></script>
+    <script>
+$( document ).ready(function() {
+    ;$("[name='role']").bootstrapSwitch();;
+})
+</script>
 
 </body>
 </html>
