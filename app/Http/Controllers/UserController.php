@@ -8,6 +8,7 @@ use App\Http\Requests;
 use Validator;
 use Redirect;
 use Session;
+use Auth;
 
 class UserController extends Controller
 {
@@ -56,14 +57,36 @@ class UserController extends Controller
 
     public function editUser(Request $request)
     {
+        if (Auth::user()->role != 1) {
+            
+            $pageRedirect = 'admin';
+
+            if (Auth::user()->id != $request['user_id']) {
+                return redirect('admin')
+                        ->with('message', 'Erro ao editar usuário!')
+                        ->with('alert-class', 'alert-warning');
+            }
+        } else {
+            $pageRedirect = 'gerenciar-usuarios';
+        }
+
         $id = $request['user_id'];
 
-        $users = $this->user->where(['id' => $id])
-                            ->update(['name' => $request['name'], 
-                                     'email' => $request['email'],
-                                     'role' => $request['role']]);
+        if (!empty($request['password'])) {
+            $users = $this->user->where(['id' => $id])
+                        ->update(['name'    => $request['name'], 
+                                 'email'    => $request['email'],
+                                 'role'     => $request['role'],
+                                 'password' => bcrypt($request['password'])]);
+        } else {
+            $users = $this->user->where(['id' => $id])
+                                ->update(['name' => $request['name'], 
+                                         'email' => $request['email'],
+                                         'role'  => $request['role']]);            
+        }
 
-        return redirect('gerenciar-usuarios')
+
+        return redirect($pageRedirect)
                         ->with('message', 'Usuário atualizado com sucesso!')
                         ->with('alert-class', 'alert-success');
 

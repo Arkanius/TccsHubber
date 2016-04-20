@@ -200,11 +200,11 @@
                 <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu lg pull-right arrow panel panel-default arrow-top-right">
                         <div class="panel-heading">
-                            More Apps
+                            Opções
                         </div>
                         <div class="panel-body text-center">
                             <div class="row">
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-green"><span class="h2"><i class="fa fa-envelope-o"></i></span><p class="text-gray no-margn">Messages</p></a></div>
+                                <div class="col-xs-6 col-sm-4"><a href="/editar/{{Auth::user()->id}}" class="text-green"><span class="h2"><i class="fa fa-envelope-o"></i></span><p class="text-gray no-margn">Editar</p></a></div>
                                 <div class="col-xs-6 col-sm-4"><a href="#" class="text-purple"><span class="h2"><i class="fa fa-calendar-o"></i></span><p class="text-gray no-margn">Events</p></a></div>
                                 
                                 <div class="col-xs-12 visible-xs-block"><hr></div>
@@ -264,11 +264,7 @@
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/app/custom.js" type="text/javascript"></script>
     <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap-switch.min" type="text/javascript"></script>
-    <script>
-$( document ).ready(function() {
-    ;$("[name='role']").bootstrapSwitch();;
-})
-</script>
+
 
 </body>
 </html>

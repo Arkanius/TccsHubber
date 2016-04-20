@@ -58,7 +58,12 @@ class HomeController extends Controller
         $data = [
             'users' => User::find($userId)
         ];
+
+        if (Auth::user()->id != $userId) {
+            return view('admin.editarusuarios', $data);
+        }
+
+        return view('admin.editarusuario', $data);
             
-        return view('admin.editarusuarios', $data);     
     }
 }
