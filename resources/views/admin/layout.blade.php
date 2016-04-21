@@ -31,7 +31,7 @@
                 <li class="active"><a href="/admin"><i class="fa fa-bookmark-o"></i><span class="nav-label">PENDENTES</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ok"></i> <span class="nav-label">APROVADOS</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ban-circle"></i> <span class="nav-label">REPROVADOS</span></a></li>
-                <li class="has-submenu"><a href="#"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
+                <li class="has-submenu"><a href="/convidar"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
                 @if (Auth::user()->role == 1) 
                 <li class="has-submenu"><a href="/gerenciar-usuarios"><i class="glyphicon glyphicon-user"></i> <span class="nav-label">GERENCIAR USUARIOS</span></a></li>
@@ -205,20 +205,6 @@
                         <div class="panel-body text-center">
                             <div class="row">
                                 <div class="col-xs-6 col-sm-4"><a href="/editar/{{Auth::user()->id}}" class="text-green"><span class="h2"><i class="fa fa-envelope-o"></i></span><p class="text-gray no-margn">Editar</p></a></div>
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-purple"><span class="h2"><i class="fa fa-calendar-o"></i></span><p class="text-gray no-margn">Events</p></a></div>
-                                
-                                <div class="col-xs-12 visible-xs-block"><hr></div>
-                                
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-red"><span class="h2"><i class="fa fa-comments-o"></i></span><p class="text-gray no-margn">Chatting</p></a></div>
-                                
-                                <div class="col-lg-12 col-md-12 col-sm-12  hidden-xs"><hr></div>
-                            
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-yellow"><span class="h2"><i class="fa fa-folder-open-o"></i></span><p class="text-gray">Folders</p></a></div>
-                                
-                                <div class="col-xs-12 visible-xs-block"><hr></div>
-                                
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-primary"><span class="h2"><i class="fa fa-flag-o"></i></span><p class="text-gray">Task</p></a></div>
-                                <div class="col-xs-6 col-sm-4"><a href="#" class="text-info"><span class="h2"><i class="fa fa-star-o"></i></span><p class="text-gray">Favorites</p></a></div>
                             </div>
                         </div>
                     </div>

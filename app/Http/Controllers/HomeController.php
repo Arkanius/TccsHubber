@@ -66,4 +66,9 @@ class HomeController extends Controller
         return view('admin.editarusuario', $data);
             
     }
+
+    public function inviteUser()
+    {
+        return view('admin.invite');
+    }
 }

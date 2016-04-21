@@ -17,9 +17,6 @@ Route::group(['middleware' => ['web']], function () {
     	return view('index');
     });
 
-    Route::get('/tcc', function () {
-    });
-
 });
 
 Route::group(['middleware' => 'web'], function () {
@@ -37,4 +34,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::post('/editar', 'UserController@editUser');
 
     Route::get('/gerenciar-usuarios', 'HomeController@usersManagement');
+
+    Route::get('/convidar', 'HomeController@inviteUser');
+
 });
