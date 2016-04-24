@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/plugins/calendar/calendar.css" />
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
-    <link href="{{url('/')}}/assetsadmin/css/bootstrap/bootstrap-switch.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/main.css" />
 
 </head>
 <body data-ng-app>

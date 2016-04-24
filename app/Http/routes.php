@@ -36,5 +36,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/gerenciar-usuarios', 'HomeController@usersManagement');
 
     Route::get('/convidar', 'HomeController@inviteUser');
+    Route::post('/sendtoken', 'HomeController@sendEmail');
+
 
 });

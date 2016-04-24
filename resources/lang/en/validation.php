@@ -35,7 +35,7 @@ return [
     'digits'               => 'The :attribute must be :digits digits.',
     'digits_between'       => 'The :attribute must be between :min and :max digits.',
     'distinct'             => 'The :attribute field has a duplicate value.',
-    'email'                => 'The :attribute must be a valid email address.',
+    'email'                => 'Email inválido.',
     'exists'               => 'The selected :attribute is invalid.',
     'filled'               => 'O :attribute campo é obrigatório.',
     'image'                => 'The :attribute must be an image.',

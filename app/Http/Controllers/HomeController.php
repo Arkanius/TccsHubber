@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\User;
+use App\Invite;
 use Validator;
 use Session;
 use Auth;
+use Mail;
 
 class HomeController extends Controller
 {
@@ -70,5 +72,42 @@ class HomeController extends Controller
     public function inviteUser()
     {
         return view('admin.invite');
+    }
+
+    public function sendEmail(Request $request)
+    {
+        $data = $request->all();
+
+        $validator = Validator::make($data, [
+            'email'    => 'required|email|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('convidar')
+                    ->with('message', 'Erro ao convidar o usuário. Por favor tente novamente')
+                    ->with('alert-class', 'alert-warning')
+                    ->with('errors', $validator->errors());
+        }
+
+        $invite = new Invite;
+        $token = $invite->createToken();
+
+        $invite->token  = $token;
+        $invite->email  = $data['email'];
+        $invite->save();
+
+        $data['link']    = url('/').'/uploadfile/'.$token;
+        $data['message'] = "Olá, segue o link para fazer o upload do seu trabalho: ".$data['link'];
+
+        Mail::raw($data['message'], function($message) use ($data)
+        {
+            $message->from('vtr.gomes@hotmail.com', 'Victor Gazotti');
+            $message->to($data['email'])->subject('Link para upload de TCC');
+        });
+
+        return redirect('convidar')
+                        ->with('message', 'Email enviado com sucesso!')
+                        ->with('alert-class', 'alert-success');
+
     }
 }
