@@ -10,7 +10,9 @@
                 <th>Tema do TCC</th>
                 <th>Email</th>
                 <th>Data de envio</th>
-                <th>Conteudo</th>
+                <th>Download</th>
+                <th>Aprovar</th>
+                <th>Reprovar</th>
 
             </tr>
         </thead>
@@ -19,7 +21,9 @@
                 <th>Sistema de arquivamento de TCC</th>
                 <th>vtr.gomes@hotmail.com</th>
                 <th>08/04/2016</th>
-                <th>Link para o download</th>
+                <th><a href="#">Link para o download</a></th>
+                <th><button class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aprovar</button></th>
+                <th><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reprovar</button></th>
             </tr>
         </tfoot>
     </table>
