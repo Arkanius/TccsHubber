@@ -17,6 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/main.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/layout.css" />
 
 </head>
 <body data-ng-app>
