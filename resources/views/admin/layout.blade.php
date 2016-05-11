@@ -14,17 +14,17 @@
 
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/bootstrap/bootstrap.css" /> 
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/plugins/calendar/calendar.css" />
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/main.css" />
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/layout.css" />
-
+    <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
 </head>
-<body data-ng-app>
 
+<body data-ng-app>
     <aside class="left-panel">
         <div class="user text-center">
             <img src="{{url('/')}}/assetsadmin/images/avtar/user.png" class="img-circle" alt="..." width="200" height="50">
+            <h4 class="user-name">{{Auth::user()->name}}</h4>
         </div>
 
         <nav class="navigation">
@@ -36,6 +36,7 @@
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
                 @if (Auth::user()->role == 1) 
                 <li class="has-submenu"><a href="/gerenciar-usuarios"><i class="glyphicon glyphicon-user"></i> <span class="nav-label">GERENCIAR USUARIOS</span></a></li>
+                <li class="has-submenu"><a href="/gerenciar-cursos"><i class="glyphicon glyphicon-folder-open"></i> <span class="nav-label">GERENCIAR CURSOS</span></a></li>
                 @endif
                 <li class="has-submenu"><a href="/logout"><i class="glyphicon glyphicon-off"></i> <span class="nav-label">SAIR</span></a></li>
             </ul>
@@ -53,147 +54,26 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            
-            <form role="search" class="navbar-left app-search pull-left hidden-xs">
-              <input type="text" placeholder="Enter keywords..." class="form-control form-control-circle">
-            </form>
-            
-            <nav class=" navbar-default hidden-xs" role="navigation">
-                <ul class="nav navbar-nav">
-                <li><a href="#">Link</a></li>
-                <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Dropdown <span class="caret"></span></a>
-                  <ul role="menu" class="dropdown-menu">
-                    <li><a href="#">Action</a></li>
-                    <li><a href="#">Another action</a></li>
-                    <li><a href="#">Something else here</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">Separated link</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#">One more separated link</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </nav>
+
+            <nav class=" navbar-default hidden-xs" role="navigation"></nav>
             
             <ul class="nav-toolbar">
                 <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-comments-o"></i> <span class="badge bg-warning">7</span></a>
                     <div class="dropdown-menu md arrow pull-right panel panel-default arrow-top-right messages-dropdown">
-                        <div class="panel-heading">
-                        Messages
-                        </div>
+                        <div class="panel-heading">Pendências</div>
                         
-                        <div class="list-group">
-                            
-                            <a href="#" class="list-group-item">
+                        <div class="list-group">                            
+                        <a href="#" class="list-group-item">
                             <div class="media">
-                              <div class="user-status busy pull-left">
-                              <img class="media-object img-circle pull-left" src="assets/images/avtar/user2.png" alt="user#1" width="40">
-                              </div>
-                              <div class="media-body">
-                                <h5 class="media-heading">Lorem ipsum dolor sit consect....</h5>
-                                <small class="text-muted">23 Sec ago</small>
-                              </div>
+                                <div class="user-status busy pull-left">
+                                    <img class="media-object img-circle pull-left" src="assets/images/avtar/user2.png" alt="user#1" width="40">
+                                </div>
+                                <div class="media-body">
+                                    <h5 class="media-heading">Trabalho adicionado</h5>
+                                    <small class="text-muted">10 minutos atrás</small>
+                                </div>
                             </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <div class="media">
-                              <div class="user-status offline pull-left">
-                              <img class="media-object img-circle pull-left" src="assets/images/avtar/user3.png" alt="user#1" width="40">
-                              </div>
-                              <div class="media-body">
-                                <h5 class="media-heading">Nunc elementum, enim vitae</h5>
-                                <small class="text-muted">23 Sec ago</small>
-                              </div>
-                            </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <div class="media">
-                              <div class="user-status invisibled pull-left">
-                              <img class="media-object img-circle pull-left" src="assets/images/avtar/user4.png" alt="user#1" width="40">
-                              </div>
-                              <div class="media-body">
-                                <h5 class="media-heading">Praesent lacinia, arcu eget</h5>
-                                <small class="text-muted">23 Sec ago</small>
-                              </div>
-                            </div>
-                            </a>
-                            <a href="#" class="list-group-item">
-                            <div class="media">
-                              <div class="user-status online pull-left">
-                              <img class="media-object img-circle pull-left" src="assets/images/avtar/user5.png" alt="user#1" width="40">
-                              </div>
-                              <div class="media-body">
-                                <h5 class="media-heading">In mollis blandit tempor.</h5>
-                                <small class="text-muted">23 Sec ago</small>
-                              </div>
-                            </div>
-                            </a>
-                            
-                            <a href="#" class="btn btn-info btn-flat btn-block">View All Messages</a>
-
-                        </div>
-                        
-                    </div>
-                </li>
-                <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-bell-o"></i><span class="badge">3</span></a>
-                    <div class="dropdown-menu arrow pull-right md panel panel-default arrow-top-right notifications">
-                        <div class="panel-heading">
-                        Notification
-                        </div>
-                        
-                        <div class="list-group">
-                            
-                            <a href="#" class="list-group-item">
-                            <p>Installing App v1.2.1<small class="pull-right text-muted">45% Done</small></p>
-                            <div class="progress progress-xs no-margn progress-striped active">
-                              <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 45%">
-                                <span class="sr-only">45% Complete</span>
-                              </div>
-                            </div>
-                            </a>
-                            
-                            <a href="#" class="list-group-item">
-                            Fusce dapibus molestie tincidunt. Quisque facilisis libero eget justo iaculis
-                            </a>
-                            
-                            <a href="#" class="list-group-item">
-                            <p>Server Status</p>
-                            <div class="progress progress-xs no-margn">
-                              <div class="progress-bar progress-bar-success" style="width: 35%">
-                                <span class="sr-only">35% Complete (success)</span>
-                              </div>
-                              <div class="progress-bar progress-bar-warning" style="width: 20%">
-                                <span class="sr-only">20% Complete (warning)</span>
-                              </div>
-                              <div class="progress-bar progress-bar-danger" style="width: 10%">
-                                <span class="sr-only">10% Complete (danger)</span>
-                              </div>
-                            </div>
-                            </a>
-                            
-                            
-                            
-                            <a href="#" class="list-group-item">
-                            <div class="media">
-                              <span class="label label-danger media-object img-circle pull-left">Danger</span>
-                              <div class="media-body">
-                                <h5 class="media-heading">Lorem ipsum dolor sit consect..</h5>
-                              </div>
-                            </div>
-                            </a>
-                            
-                            
-                            <a href="#" class="list-group-item">
-                            <p>Server Status</p>
-                            <div class="progress progress-xs no-margn">
-                              <div style="width: 60%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="60" role="progressbar" class="progress-bar progress-bar-info">
-                                <span class="sr-only">60% Complete (warning)</span>
-                              </div>
-                            </div>
-                            </a>
-                            
-
+                        </a>                            
                         </div>
                         
                     </div>
@@ -233,7 +113,6 @@
     </footer>        
     
     </section>
-    <!-- Content Block Ends Here (right box)-->
 
     <script src="{{url('/')}}/assetsadmin/js/plugins/underscore/underscore-min.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap.min.js"></script>

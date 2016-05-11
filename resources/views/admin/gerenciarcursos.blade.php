@@ -4,31 +4,29 @@
 
 <div class="container">
   <h2>Adicionar</h2>
-  <p>Clique para adicionar um usuário</p>      
-  <a class="btn btn-default glyphicon glyphicon-plus" href="/cadastrar"></a>
+  <p>Clique para adicionar um curso</p>      
+  <a class="btn btn-default glyphicon glyphicon-plus" href="/cadastrar-curso"></a>
 </div>
 
 <div class="container">
-  <h2>Usuários cadastrados</h2>
-  <p>Usuários cadastrados no sistema</p>
+  <h2>Cursos cadastrados</h2>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>Nome</th>
-        <th>Email</th>
-        <th>Tipo de acesso</th>
-        <th>Gerenciar</th>
+        <th>Coordenador</th>
+        <th>Status</th>
       </tr>
     </thead>
     <tbody>
-    	@foreach ($users as $user)
+    	@foreach ($courses as $course)
       		<tr id="{{$user->id}}">
-		        <td>{{ $user->name }}</td>
-		        <td>{{ $user->email }}</td>
-		        <td>{{ $user->role == 1 ? 'Administrador' : 'Usuário' }}</td>
+		        <td>{{ $course->name }}</td>
+		        <td>{{ $course->email }}</td>
+		        <td>{{ $course->role == 1 ? 'Administrador' : 'Usuário' }}</td>
 		        <td>
-		        	<a class="btn btn-success" href="/editar/{{$user->id}}">Editar</a>
-		        	<a class="btn btn-danger" href="{{$user->id}}" data-confirm="Deseja realmente excluir o usuário?">Excluir</a>
+		        	<a class="btn btn-success" href="/editar/{{$course->id}}">Editar</a>
+		        	<a class="btn btn-danger" href="{{$course->id}}" data-confirm="Deseja realmente excluir o curso?">Excluir</a>
 		        </td>
       		</tr>
 		@endforeach

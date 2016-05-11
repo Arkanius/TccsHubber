@@ -18,7 +18,7 @@ Route::group(['middleware' => ['web']], function () {
     });
 
 });
-
+ 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
@@ -37,6 +37,11 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/convidar', 'HomeController@inviteUser');
     Route::post('/sendtoken', 'HomeController@sendEmail');
+    
+    /*  Cursos */
+    Route::get('/gerenciar-cursos', 'CourseController@coursesManagement');
+    Route::get('/cadastrar-curso', 'CourseController@createCourse');
+    Route::post('/cadastrar-curso', 'CourseController@saveCourse');
 
 
 });
