@@ -23,7 +23,7 @@ class CreatingWorksTable extends Migration
             $table->string('description'); // descrição
             $table->string('subject'); // assunto
             $table->string('url'); //link de upload
-            $table->tinyInteger('status'); //ativo ou não
+            $table->tinyInteger('status'); //pendente = 0; ativo = 1; reprovado = 2
             $table->timestamps();
         });
     }

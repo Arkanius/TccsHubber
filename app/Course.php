@@ -12,5 +12,8 @@ class Course extends Model
         'name', 'coordinator', 'status'
     ];
 
-
+    public function getWorks()
+    {
+    	return $this->hasMany('App\Work');
+    }
 }

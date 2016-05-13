@@ -15,19 +15,20 @@
                         <th>Download</th>
                         <th>Aprovar</th>
                         <th>Reprovar</th>
-
                     </tr>
                 </thead>
-                <tfoot>
-                    <tr>
-                        <th>Sistema de arquivamento de TCC</th>
-                        <th>vtr.gomes@hotmail.com</th>
-                        <th>08/04/2016</th>
-                        <th><a href="#">Link para o download</a></th>
-                        <th><button class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aprovar</button></th>
-                        <th><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reprovar</button></th>
+                <tbody>
+                @foreach ($works as $work)
+                    <tr id="{{$work->id}}">
+                        <td>{{ $work->theme }}</td>
+                        <td>{{ $work->user_email }}</td>
+                        <td>{{ $work->created_at->format('d/m/Y H:i:s') }}</td>
+                        <td><a href="{{ $work->url }}">Download</td>
+                        <td><button class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aprovar</button></td>
+                        <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span> Reprovar</button></td>
                     </tr>
-                </tfoot>
+                @endforeach
+                </tbody>
             </table>
         </div>
     </div>

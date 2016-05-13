@@ -25,6 +25,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/home', 'HomeController@index');
     Route::get('/admin', 'HomeController@index');
 
+    Route::get('/reprovados', 'HomeController@reproved');    
+
     Route::get('/cadastrar', 'HomeController@createUsers');
     Route::post('/cadastrar', 'UserController@saveUsers');
    

@@ -6,6 +6,7 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\User;
 use App\Invite;
+use App\Work;
 use Validator;
 use Session;
 use Auth;
@@ -30,7 +31,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('admin.pendentes');
+        $data = [
+            'works' => Work::where('status', 0)->get()
+        ];
+
+        return view('admin.pendentes', $data);
     }
 
     public function createUsers()
@@ -54,7 +59,6 @@ class HomeController extends Controller
         abort(404); 
 
     }
-
 
     public function editUser($userId)
     {
@@ -110,5 +114,14 @@ class HomeController extends Controller
                         ->with('message', 'Email enviado com sucesso!')
                         ->with('alert-class', 'alert-success');
 
+    }
+
+    public function reproved()
+    {
+        $data = [
+            'works' => Work::with('user')->where('status', 2)->get()
+        ];
+
+        return view('admin.reprovados', $data);
     }
 }
