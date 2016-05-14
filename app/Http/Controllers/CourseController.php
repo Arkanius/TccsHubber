@@ -82,4 +82,34 @@ class CourseController extends Controller
         
         return;          
     }
+
+    public function updateCourse(Request $request)
+    {   
+        if (Auth::user()) {
+
+            $validator = Validator::make($request->all(), [
+                'name'           => 'required|max:255',
+                'coordinator'    => 'required|max:255',
+            ]);
+
+            $pageRedirect = 'gerenciar-cursos';
+            $id           = $request['course_id'];
+
+            $update = [
+                        'name'        => $request['name'], 
+                        'coordinator' => $request['coordinator'],                        
+                    ];
+            if ($request['status'] == 1) {
+                $update['status'] = 1;
+            }
+     
+            $this->course->where(['id' => $id])->update($update);
+
+            return redirect($pageRedirect)
+                    ->with('message', 'Curso atualizado com sucesso!')
+                    ->with('alert-class', 'alert-success');
+        }
+
+        abort(404);
+    }
 }

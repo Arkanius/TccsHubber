@@ -38,6 +38,12 @@
                             </div>
                         </div>
 
+                        <label class="col-md-4 control-label">Ativar curso</label>
+
+                            <div class="col-md-8">
+                                <input type="checkbox" name="status" value="1"  {{ $course->status == 1 ?  "disabled checked" : "" }}>
+                            </div>
+
                         <input type="hidden" value="{{ $course->id }}" name="course_id">
 
                         <div class="form-group">
