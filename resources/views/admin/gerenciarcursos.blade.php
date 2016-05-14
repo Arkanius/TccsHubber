@@ -16,17 +16,18 @@
         <th>Nome</th>
         <th>Coordenador</th>
         <th>Status</th>
+        <th>Ações</th>
       </tr>
     </thead>
     <tbody>
     	@foreach ($courses as $course)
-      		<tr id="{{$user->id}}">
+      		<tr id="{{$course->id}}">
 		        <td>{{ $course->name }}</td>
-		        <td>{{ $course->email }}</td>
-		        <td>{{ $course->role == 1 ? 'Administrador' : 'Usuário' }}</td>
+		        <td>{{ $course->coordinator }}</td>
+		        <td name="status">{{ $course->status == 1 ? 'Ativo' : 'Inativo' }}</td>
 		        <td>
-		        	<a class="btn btn-success" href="/editar/{{$course->id}}">Editar</a>
-		        	<a class="btn btn-danger" href="{{$course->id}}" data-confirm="Deseja realmente excluir o curso?">Excluir</a>
+		        	<a class="btn btn-success" href="/editar-curso/{{$course->id}}">Editar</a>
+		        	<a class="btn btn-danger" href="{{$course->id}}" data-confirm="Deseja realmente inabilitar o curso?">Inabilitar</a>
 		        </td>
       		</tr>
 		@endforeach
@@ -54,55 +55,50 @@
 <script>
 	$(document).ready(function() {
 	
-	$('#dataConfirmModal').hide();
+		$('#dataConfirmModal').hide();
 
-	$('a[data-confirm]').click(function(ev) {
+		$('a[data-confirm]').click(function(ev) {
 
-		resetModal();
-		
-		var href = $(this).attr('href');
+			resetModal();
+			
+			var href = $(this).attr('href');
 
-		$('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
-		$('#dataConfirmOK').click(function () {
-			deleteUser(href);
+			$('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
+			$('#dataConfirmOK').click(function () {
+				deleteResource(href);
+			});
+			$('#dataConfirmModal').modal({show:true});
+			return false;
 		});
-		//$('#dataConfirmOK').attr('href', href);
-		$('#dataConfirmModal').modal({show:true});
-		return false;
+
+		function deleteResource(id) 
+		{
+			$.ajax({
+				type: "POST",
+				url: "/deletecourse",
+				dataType: 'json',
+	            data: {resource_id: id},
+
+	            success: function(result) {
+	            	if (result == 1) {
+	            		$('#dataConfirmModal').find('.modal-body').text('Curso inabilitado com sucesso!');
+	            		$('#dataConfirmOK').hide();
+	            		$('#closeModal').text('Fechar');
+	            		deleteRow(id);            		
+	            	} else {
+	            		$('#dataConfirmModal').find('.modal-body').text('Erro ao excluir o curso!');
+	            		$('#dataConfirmOK').hide();
+	            		$('#closeModal').text('Fechar');
+	            	}
+	            }
+			});
+		}
 	});
-
-	function deleteUser(id) 
-	{
-		$.ajax({
-			type: "POST",
-			url: "/deleteuser",
-			dataType: 'json',
-            data: {user_id: id},
-
-            success: function(result) {
-            	if (result == 1) {
-            		$('#dataConfirmModal').find('.modal-body').text('Usuário excluído com sucesso!');
-            		$('#dataConfirmOK').hide();
-            		$('#closeModal').text('Fechar');
-            		deleteRow(id);
-            		
-            	} else {
-            		$('#dataConfirmModal').find('.modal-body').text('Este usuário não pode ser excluído!');
-            		$('#dataConfirmOK').hide();
-            		$('#closeModal').text('Fechar');
-            	}
-            }
-		});
-	}
-});
-
 
 	function deleteRow(id) 
 	{
-		var killrow = $('tr[id="'+id+'"]'); console.log(killrow);
-		killrow.fadeOut(500, function(){
-			killrow.remove();
-		});
+		var killrow = $('tr[id="'+id+'"]');
+		killrow.children('td[name="status"]').text('Inativo');
 	}
 
 	function resetModal()

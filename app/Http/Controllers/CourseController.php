@@ -56,15 +56,30 @@ class CourseController extends Controller
     						->with('errors', $validator->errors());
     	}
 
-		$this->user->name     = $request['name'];
-		$this->user->email    = $request['email'];
-		$this->user->password = bcrypt($request['password']);
-		$this->user->role     = empty($request['role'] ? 0 : 1);
+		$this->course->name           = $request['name'];
+		$this->course->coordinator    = $request['coordinator'];
+		$this->course->status         = 1;
 
-		$this->user->save();
+		$this->course->save();
 
-        return redirect('admin')
+        return redirect('gerenciar-cursos')
         				->with('message', 'Curso cadastrado com sucesso!')
     					->with('alert-class', 'alert-success');
+    }
+
+    public function deleteUser(Request $request)
+    {
+        if (Auth::user()) {
+            $id = $request['resource_id'];
+
+            if ($this->course->where(['id' => $id])->update(['status' => 0])) {
+                echo json_encode(1);
+                return;
+            }
+            
+            echo json_encode(0);
+        }
+        
+        return;          
     }
 }

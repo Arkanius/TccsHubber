@@ -43,7 +43,10 @@ Route::group(['middleware' => 'web'], function () {
     /*  Cursos */
     Route::get('/gerenciar-cursos', 'CourseController@coursesManagement');
     Route::get('/cadastrar-curso', 'CourseController@createCourse');
+    Route::get('/editar-curso/{id}', 'HomeController@updateCourse');
+    Route::get('/editar-curso/', 'CourseController@updateCourse');
     Route::post('/cadastrar-curso', 'CourseController@saveCourse');
+    Route::post('/deletecourse', 'CourseController@deleteUser');
 
 
 });

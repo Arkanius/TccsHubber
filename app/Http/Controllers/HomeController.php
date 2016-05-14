@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Invite;
 use App\Work;
+use App\Course;
 use Validator;
 use Session;
 use Auth;
@@ -123,5 +124,18 @@ class HomeController extends Controller
         ];
 
         return view('admin.reprovados', $data);
+    }
+
+    public function updateCourse($courseId)
+    {   
+        $data = [
+            'course' => Course::find($courseId)
+        ];
+
+        if (Auth::user()) {
+            return view('admin.editarcurso', $data);
+        }
+
+        abort(404);
     }
 }
