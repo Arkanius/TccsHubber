@@ -29,7 +29,7 @@ class WorkController extends Controller
         $token  = $invite->createToken();
 
         $data['email']  = $work->user_email;
-        
+
         $invite->token  = $token;
         $invite->email  = $data['email'];
         $invite->save();
@@ -45,5 +45,18 @@ class WorkController extends Controller
         });
 
         return $envio;
+    }
+
+    public function manage(Request $request)
+    {
+    	$action = $request['action'];
+
+    	$work = $this->work->find($request['resource_id']);
+
+    	$work->status = $action;
+
+
+    	echo json_encode(['message' => $action == 1 ? 'Trabalho aprovado com sucesso!' : 'Trabalho reprovado com sucesso', 
+    					  'status' => $work->save()]);
     }
 }

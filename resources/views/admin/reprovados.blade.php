@@ -27,7 +27,7 @@
                         <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reenviar o token?"><span class="glyphicon glyphicon-ok" aria-hidden="true" href="{{ $work->url }}"> Reenviar</span></a></td>
                         <td>{{ $work->updated_at->format('d/m/Y H:i:s') }}</td>
                         <td>{{ $work->user->name }}</td>                        
-                        <td><button class="btn btn-success"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> Aprovar</button></td>
+                        <td><a class="btn btn-success" href="{{$work->id}}" data-confirm="Deseja realmente aprovar o trabalho?" data-action="1"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Aprovar</span></a></td>
                     </tr>
                 @endforeach
                 </tbody>
@@ -62,10 +62,15 @@ $(document).ready(function() {
             resetModal();
             
             var href = $(this).attr('href');
+            var action = $(this).attr('data-action');
 
             $('#dataConfirmModal').find('.modal-body').text($(this).attr('data-confirm'));
             $('#dataConfirmOK').click(function () {
-                deleteResource(href);
+                if (action.length) {
+                    manageResource(href, action);
+                } else {
+                    deleteResource(href);                    
+                }
             });
             $('#dataConfirmModal').modal({show:true});
             return false;
@@ -93,6 +98,29 @@ $(document).ready(function() {
                 }
             });
         }
+
+        function manageResource(id, action) 
+        {
+            $.ajax({
+                type: "POST",
+                url: "/gerenciar",
+                dataType: 'json',
+                data: {resource_id: id, action: action},
+
+                success: function(result) {
+                    if (result.status == 1) {
+                        $('#dataConfirmModal').find('.modal-body').text(result.message);
+                        $('#dataConfirmOK').hide();
+                        $('#closeModal').text('Fechar');
+                        deleteRow(id);                  
+                    } else {
+                        $('#dataConfirmModal').find('.modal-body').text(result.message);
+                        $('#dataConfirmOK').hide();
+                        $('#closeModal').text('Fechar');
+                    }
+                }
+            });
+        }
     });
 
     function deleteRow(id) 
@@ -105,45 +133,6 @@ $(document).ready(function() {
     {
         $('#dataConfirmOK').show();
     }
-
-
-/*
-    function resendToken(id) 
-    {
-        alert(id);return;
-        $.ajax({
-            type: "POST",
-            url: "/resendtoken",
-            dataType: 'json',
-            data: {resource_id: id},
-
-            success: function(result) {
-                if (result == 1) {
-                    $('#dataConfirmModal').find('.modal-body').text('Curso inabilitado com sucesso!');
-                    $('#dataConfirmOK').hide();
-                    $('#closeModal').text('Fechar');
-                    deleteRow(id);                  
-                } else {
-                    $('#dataConfirmModal').find('.modal-body').text('Erro ao excluir o curso!');
-                    $('#dataConfirmOK').hide();
-                    $('#closeModal').text('Fechar');
-                }
-            }
-        });
-    }
-
-
-    function deleteRow(id) 
-    {
-        var killrow = $('tr[id="'+id+'"]');
-        killrow.children('td[name="status"]').text('Inativo');
-    }
-
-    function resetModal()
-    {
-        $('#dataConfirmOK').show();
-    }
-*/
 </script>
 
 

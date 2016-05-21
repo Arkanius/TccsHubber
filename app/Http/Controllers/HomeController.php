@@ -39,6 +39,18 @@ class HomeController extends Controller
         return view('admin.pendentes', $data);
     }
 
+    public function home(Request $request)
+    {   
+        $work = new Work;
+
+        $data = [
+            'works'   => $request->id ? $work->getWorksByCourse($request->id, 1) : $work->getWorksAndCourse(1),
+            'courses' => Course::all()
+        ];
+
+        return view('index', $data);
+    }
+
     public function createUsers()
     {
         return view('admin.register');
@@ -124,6 +136,15 @@ class HomeController extends Controller
         ];
 
         return view('admin.reprovados', $data);
+    }
+
+    public function approved()
+    {
+        $data = [
+            'works' => Work::with('user')->where('status', 1)->get()
+        ];
+
+        return view('admin.trabalhosaprovados', $data);
     }
 
     public function updateCourse($courseId)

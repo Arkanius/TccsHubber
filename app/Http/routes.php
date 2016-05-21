@@ -11,15 +11,13 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
-
-    Route::get('/', function () {
-    	return view('index');
-    });
-
-});
  
 Route::group(['middleware' => 'web'], function () {
+    Route::get('/', 'HomeController@home');
+    Route::get('/curso/{id}', 'HomeController@home');
+
+
+    /*** ADMIN ***/
     Route::auth();
 
     Route::get('/home', 'HomeController@index');
@@ -50,6 +48,8 @@ Route::group(['middleware' => 'web'], function () {
 
     /* Works */
     Route::post('/resendtoken', 'WorkController@resendToken');
+    Route::post('/gerenciar', 'WorkController@manage');
+    Route::get('/aprovados', 'HomeController@approved');
 
 
 });

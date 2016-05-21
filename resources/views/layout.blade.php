@@ -4,13 +4,13 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"> 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-		<link href='https://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" type="text/css" href="css/layout.css">
-		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-		<link rel="shortcut icon" href="../favicon.ico">
-		<link rel="stylesheet" type="text/css" href="css/default.css" />
-		<link rel="stylesheet" type="text/css" href="css/component.css" />
-		<script src="js/modernizr.custom.js"></script>
+		<link href='{{url('/')}}/css/font.css' rel='stylesheet' type='text/css'>
+		<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/layout.css">
+		<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/bootstrap.css">
+		<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/default.css" />
+		<link rel="stylesheet" type="text/css" href="{{url('/')}}/css/component.css" />
+		<link rel="shortcut icon" href="{{url('/')}}/favicon.ico">
+		<script src="{{url('/')}}/js/modernizr.custom.js"></script>
 		<title>TCC</title>
 	</head>
 	
@@ -31,8 +31,8 @@
 				<spam class="copyright">Fatec São Caetano do Sul todos os direitos reservados © </spam>
 			</div>
 		</footer>
-		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-		<script src="js/jquery.cbpFWSlider.min.js"></script>
+		<script src="{{url('/')}}/js/jquery.js"></script>
+		<script src="{{url('/')}}/js/jquery.cbpFWSlider.min.js"></script>
 		<script>
 			$( function() {
 				/*

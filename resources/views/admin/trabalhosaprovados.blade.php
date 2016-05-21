@@ -2,7 +2,7 @@
 
 @section('content')
 
-<h2 class="txt_pendentes">Trabalhos Pendentes</h2>
+<h2 class="txt_pendentes">Trabalhos Aprovados</h2>
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -13,7 +13,6 @@
                         <th>Email</th>
                         <th>Data de envio</th>
                         <th>Download</th>
-                        <th>Aprovar</th>
                         <th>Reprovar</th>
                     </tr>
                 </thead>
@@ -24,7 +23,6 @@
                         <td>{{ $work->user_email }}</td>
                         <td>{{ $work->created_at->format('d/m/Y H:i:s') }}</td>
                         <td><a href="{{ $work->url }}">Download</td>                        
-                        <td><a class="btn btn-success" href="{{$work->id}}" data-confirm="Deseja realmente aprovar o trabalho?" data-action="1"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Aprovar</span></a></td>
                         <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reprovar o trabalho?" data-action="2"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Reprovar</span></a></td>
                     </tr>
                 @endforeach

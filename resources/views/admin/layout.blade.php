@@ -30,7 +30,7 @@
         <nav class="navigation">
             <ul class="list-unstyled">
                 <li class="active"><a href="/admin"><i class="fa fa-bookmark-o"></i><span class="nav-label">PENDENTES</span></a></li>
-                <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-ok"></i> <span class="nav-label">APROVADOS</span></a></li>
+                <li class="has-submenu"><a href="/aprovados"><i class="glyphicon glyphicon-ok"></i> <span class="nav-label">APROVADOS</span></a></li>
                 <li class="has-submenu"><a href="/reprovados"><i class="glyphicon glyphicon-ban-circle"></i> <span class="nav-label">REPROVADOS</span></a></li>
                 <li class="has-submenu"><a href="/convidar"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
                 <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
