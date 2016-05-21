@@ -40,13 +40,16 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/convidar', 'HomeController@inviteUser');
     Route::post('/sendtoken', 'HomeController@sendEmail');
     
-    /*  Cursos */
+    /*  Courses */
     Route::get('/gerenciar-cursos', 'CourseController@coursesManagement');
     Route::get('/cadastrar-curso', 'CourseController@createCourse');
     Route::get('/editar-curso/{id}', 'HomeController@updateCourse');
     Route::post('/editar-curso/', 'CourseController@updateCourse');
     Route::post('/cadastrar-curso', 'CourseController@saveCourse');
     Route::post('/deletecourse', 'CourseController@deleteUser');
+
+    /* Works */
+    Route::post('/resendtoken', 'WorkController@resendToken');
 
 
 });

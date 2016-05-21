@@ -65,9 +65,7 @@
                             <div class="col-md-6 col-md-offset-4">
                                 <button class="btn btn-success btn_login">
                                 	<span class="glyphicon glyphicon-ok" aria-hidden="true"></span> ENTRAR
-                                </button>
-
-                                <a class="btn btn-link" href="{{ url('/password/reset') }}">Esqueceu a senha?</a>
+                                </button>                        
                             </div>
                         </div>
                     </form>

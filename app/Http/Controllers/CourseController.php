@@ -96,9 +96,10 @@ class CourseController extends Controller
             $id           = $request['course_id'];
 
             $update = [
-                        'name'        => $request['name'], 
-                        'coordinator' => $request['coordinator'],                        
-                    ];
+                'name'        => $request['name'],
+                'coordinator' => $request['coordinator'],
+            ];
+
             if ($request['status'] == 1) {
                 $update['status'] = 1;
             }
@@ -112,4 +113,5 @@ class CourseController extends Controller
 
         abort(404);
     }
+   
 }
