@@ -51,7 +51,20 @@
 
     <script>
     $(document).ready(function() {
-        $('#listTable').DataTable();
+       $('#listTable').DataTable({
+            "language": {
+                "lengthMenu": "Exibir _MENU_ registros por página",
+                "zeroRecords": "Nenhum resultado encontrado",
+                "info": "Página _PAGE_ de _PAGES_",
+                "infoEmpty": "Nenhum registro disponível",
+                "infoFiltered": "(Filtrado de _MAX_ registros)",
+                "paginate": {
+                    "previous": "Anterior",
+                    "next": "Próxima"
+                },
+                "search": "Buscar:"
+            }
+        }); 
     
         $('#dataConfirmModal').hide();
 
