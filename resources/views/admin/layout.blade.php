@@ -17,13 +17,13 @@
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/app/app.v1.css" />
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/main.css" />
     <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/project/layout.css" />
+    <link rel="stylesheet" href="{{url('/')}}/assetsadmin/css/jquery.dataTables.min.css" />
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,500,600,700,300' rel='stylesheet' type='text/css'>
 </head>
 
 <body data-ng-app>
     <aside class="left-panel">
         <div class="user text-center">
-            <img src="{{url('/')}}/assetsadmin/images/avtar/user.png" class="img-circle" alt="..." width="200" height="50">
             <h4 class="user-name">{{Auth::user()->name}}</h4>
         </div>
 
@@ -130,6 +130,8 @@
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/app/custom.js" type="text/javascript"></script>
     <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap-switch.min" type="text/javascript"></script>
+    <script src="{{url('/')}}/assetsadmin/js/jquery-1.12.3.min.js" type="text/javascript"></script>
+    <script src="{{url('/')}}/assetsadmin/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 
 </body>

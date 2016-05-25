@@ -36,6 +36,7 @@ class Work extends Model
                     ->join('courses', 'works.id', '=', 'courses.id')
                     ->select('*')
                     ->where('courses.id', $courseId)
+                    ->where('courses.status', 1)
                     ->where('works.status', $status)
                     ->get();
     }

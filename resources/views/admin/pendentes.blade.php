@@ -6,7 +6,7 @@
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-            <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
+            <table id="listTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
                 <thead>
                     <tr>
                         <th>Tema do TCC</th>
@@ -51,6 +51,7 @@
 
     <script>
     $(document).ready(function() {
+        $('#listTable').DataTable();
     
         $('#dataConfirmModal').hide();
 
