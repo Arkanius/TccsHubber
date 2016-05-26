@@ -24,7 +24,7 @@ class Work extends Model
     public function getWorksAndCourse($status)
     {
         return DB::table('works')
-                    ->join('courses', 'works.id', '=', 'courses.id')
+                    ->join('courses', 'works.course_id', '=', 'courses.id')
                     ->select('*')
                     ->where('works.status', $status)
                     ->get();
@@ -33,7 +33,7 @@ class Work extends Model
     public function getWorksByCourse($courseId, $status)
     {
         return DB::table('works')
-                    ->join('courses', 'works.id', '=', 'courses.id')
+                    ->join('courses', 'works.course_id', '=', 'courses.id')
                     ->select('*')
                     ->where('courses.id', $courseId)
                     ->where('courses.status', 1)

@@ -96,7 +96,7 @@ legend{
 
 .btn_ads a{
 	color:#fff;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 .btn_ads:hover a{
@@ -108,7 +108,7 @@ legend{
 	background: orange;
 	color:#fff;
 	box-shadow: 0 5px #FF8C00;
-	margin-bottom: 10px;
+	margin-bottom: 30px;
 }
 
 .btn_orange:hover{

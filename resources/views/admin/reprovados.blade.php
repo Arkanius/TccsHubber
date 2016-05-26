@@ -15,7 +15,6 @@
                         <th>Reenviar token</th>
                         <th>Data de reprovação</th>
                         <th>Reprovado por</th>
-                        <th>Aprovar</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -27,7 +26,7 @@
                         <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reenviar o token?"><span class="glyphicon glyphicon-ok" aria-hidden="true" href="{{ $work->url }}"> Reenviar</span></a></td>
                         <td>{{ $work->updated_at->format('d/m/Y H:i:s') }}</td>
                         <td>{{ $work->user->name }}</td>                        
-                        <td><a class="btn btn-success" href="{{$work->id}}" data-confirm="Deseja realmente aprovar o trabalho?" data-action="1"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Aprovar</span></a></td>
+                        
                     </tr>
                 @endforeach
                 </tbody>

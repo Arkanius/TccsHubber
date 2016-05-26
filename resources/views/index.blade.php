@@ -9,7 +9,7 @@
 			<nav class="row">
 				@foreach ($courses as $course)
 					<center>
-						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 teste">
+						<div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
 							<a class="btn_ads btn_orange" href="/curso/{{ $course->id }}">{{ $course->name }}</a>
 						</div>
 					</center>
