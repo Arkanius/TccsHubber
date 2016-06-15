@@ -22,4 +22,14 @@ class GeneralController extends Controller
 
         return view('index', $data);
     }
+
+    public function show(Request $request)
+    {
+
+        $data = [
+            'works'   => Work::where('id', $request->id)->get(),
+        ];
+
+        return view('description', $data);
+    }
 }

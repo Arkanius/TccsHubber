@@ -14,8 +14,10 @@
  
 Route::group(['middleware' => 'web'], function () {
 
+    /* Works not logged*/
     Route::get('/', 'GeneralController@home');
     Route::get('/curso/{id}', 'GeneralController@home');
+    Route::get('/visualizar/{id}', 'GeneralController@show');
 
     /*** ADMIN ***/
     Route::auth();

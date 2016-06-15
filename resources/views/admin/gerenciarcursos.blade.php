@@ -27,7 +27,7 @@
 		        <td name="status">{{ $course->status == 1 ? 'Ativo' : 'Inativo' }}</td>
 		        <td>
 		        	<a class="btn btn-success" href="/editar-curso/{{$course->id}}">Editar</a>
-		        	<a class="btn btn-danger" href="{{$course->id}}" data-confirm="Deseja realmente inabilitar o curso?">Inabilitar</a>
+		        	<a data-confirm="Deseja realmente inabilitar o curso?" class="btn btn-danger" href="{{$course->id}}">Desabilitar</a>
 		        </td>
       		</tr>
 		@endforeach
@@ -72,7 +72,6 @@
 		$('#dataConfirmModal').hide();
 
 		$('a[data-confirm]').click(function(ev) {
-
 			resetModal();
 			
 			var href = $(this).attr('href');

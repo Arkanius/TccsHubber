@@ -33,7 +33,6 @@
                 <li class="has-submenu"><a href="/aprovados"><i class="glyphicon glyphicon-ok"></i> <span class="nav-label">APROVADOS</span></a></li>
                 <li class="has-submenu"><a href="/reprovados"><i class="glyphicon glyphicon-ban-circle"></i> <span class="nav-label">REPROVADOS</span></a></li>
                 <li class="has-submenu"><a href="/convidar"><i class="fa fa-file-text-o"></i> <span class="nav-label">GERAR TOKEN</span></a></li>
-                <li class="has-submenu"><a href="#"><i class="glyphicon glyphicon-pencil"></i> <span class="nav-label">EDITAR OU REMOVER</span></a></li>
                 @if (Auth::user()->role == 1) 
                 <li class="has-submenu"><a href="/gerenciar-usuarios"><i class="glyphicon glyphicon-user"></i> <span class="nav-label">GERENCIAR USUARIOS</span></a></li>
                 <li class="has-submenu"><a href="/gerenciar-cursos"><i class="glyphicon glyphicon-folder-open"></i> <span class="nav-label">GERENCIAR CURSOS</span></a></li>
@@ -58,26 +57,6 @@
             <nav class=" navbar-default hidden-xs" role="navigation"></nav>
             
             <ul class="nav-toolbar">
-                <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-comments-o"></i> <span class="badge bg-warning">7</span></a>
-                    <div class="dropdown-menu md arrow pull-right panel panel-default arrow-top-right messages-dropdown">
-                        <div class="panel-heading">Pendências</div>
-                        
-                        <div class="list-group">                            
-                        <a href="#" class="list-group-item">
-                            <div class="media">
-                                <div class="user-status busy pull-left">
-                                    <img class="media-object img-circle pull-left" src="assets/images/avtar/user2.png" alt="user#1" width="40">
-                                </div>
-                                <div class="media-body">
-                                    <h5 class="media-heading">Trabalho adicionado</h5>
-                                    <small class="text-muted">10 minutos atrás</small>
-                                </div>
-                            </div>
-                        </a>                            
-                        </div>
-                        
-                    </div>
-                </li>
                 <li class="dropdown"><a href="#" data-toggle="dropdown"><i class="fa fa-ellipsis-v"></i></a>
                     <div class="dropdown-menu lg pull-right arrow panel panel-default arrow-top-right">
                         <div class="panel-heading">
@@ -93,9 +72,7 @@
             </ul>
         </header>
 
-    <!-- JQuery v1.9.1 -->
     <script src="{{url('/')}}/assetsadmin/js/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
-
     
     @if(Session::has('message'))
     <div class="alert {{ Session::get('alert-class', 'alert-info') }}">
@@ -124,13 +101,11 @@
     <script src="{{url('/')}}/assetsadmin/js/plugins/DevExpressChartJS/demo-vectorMap.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.min.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/sparkline/jquery.sparkline.demo.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.14/angular.min.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/angular/todo.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/plugins/calendar/calendar-conf.js"></script>
     <script src="{{url('/')}}/assetsadmin/js/app/custom.js" type="text/javascript"></script>
     <script src="{{url('/')}}/assetsadmin/js/bootstrap/bootstrap-switch.min" type="text/javascript"></script>
-    <script src="{{url('/')}}/assetsadmin/js/jquery-1.12.3.min.js" type="text/javascript"></script>
     <script src="{{url('/')}}/assetsadmin/js/jquery.dataTables.min.js" type="text/javascript"></script>
 
 

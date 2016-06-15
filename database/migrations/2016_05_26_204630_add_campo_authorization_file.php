@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddCampoUserApprovedWorks extends Migration
+class AddCampoAuthorizationFile extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,7 @@ class AddCampoUserApprovedWorks extends Migration
     public function up()
     {
         Schema::table('works', function (Blueprint $table) {
-           // $table->integer('user_approved')->unsigned();
-            //$table->foreign('user_approved')->references('id')->on('users'); // fk de cursos
+            $table->string('authorization_file');
         });
     }
 
@@ -26,7 +25,7 @@ class AddCampoUserApprovedWorks extends Migration
     public function down()
     {
         Schema::table('works', function (Blueprint $table) {
-            $table->dropForeign('user_approved');
+            $table->dropColumn('authorization_file');
         });
     }
 }
