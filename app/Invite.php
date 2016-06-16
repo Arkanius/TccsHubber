@@ -15,7 +15,6 @@ class Invite extends Model
 
     public function validateToken($token)
     {
-    	$result = $this->where(['token' => $token])->get();
-    	dd($result);
+    	return $this->where(['token' => $token])->get();
     }
 }

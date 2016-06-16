@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Work;
 use App\Course;
+use App\Invite;
 
 
 class GeneralController extends Controller
@@ -31,5 +32,15 @@ class GeneralController extends Controller
         ];
 
         return view('description', $data);
+    }
+
+    public function upload($token)
+    {
+    	$invite = new Invite;
+    	$result = $invite->validateToken($token);
+
+    	if ($result->isEmpty()) {
+            abort(404);
+        }
     }
 }

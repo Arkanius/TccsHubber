@@ -18,6 +18,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/', 'GeneralController@home');
     Route::get('/curso/{id}', 'GeneralController@home');
     Route::get('/visualizar/{id}', 'GeneralController@show');
+    Route::get('/upload/{token}', 'GeneralController@upload');
 
     /*** ADMIN ***/
     Route::auth();

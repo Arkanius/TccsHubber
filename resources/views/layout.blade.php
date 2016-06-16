@@ -19,7 +19,7 @@
 			<div class="main">
 				<div class="row">
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-						<h1 class="titulo">Sistema Academico de TCC</h1>
+						<a href="{{url('/')}}"><h1 class="titulo">Sistema Academico de TCC</h1></a>
 					</div>
 			</div>
 		</header>
