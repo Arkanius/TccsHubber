@@ -59,4 +59,24 @@ class WorkController extends Controller
     	echo json_encode(['message' => $action == 1 ? 'Trabalho aprovado com sucesso!' : 'Trabalho reprovado com sucesso', 
     					  'status' => $work->save()]);
     }
+
+    public function upload(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'title'         => 'required',
+            'email'         => 'required|email',
+            'advisor'       => 'required',
+            'date'          => 'required',
+            'description'   => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('cadastrar')
+                            ->with('message', 'Erro ao cadastrar o trabalho. Por favor tente novamente')
+                            ->with('alert-class', 'alert-warning')
+                            ->with('errors', $validator->errors());
+        }
+
+        dd($request);
+    }
 }

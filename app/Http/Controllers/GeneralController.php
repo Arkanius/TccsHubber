@@ -42,5 +42,7 @@ class GeneralController extends Controller
     	if ($result->isEmpty()) {
             abort(404);
         }
+
+        return view('upload');
     }
 }
