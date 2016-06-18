@@ -6,7 +6,7 @@
 
 		<div class="main">
 			<article>
-				<form role="form" method="POST" action="{{ url('/upload') }}">
+				<form role="form" method="POST" action="{{ url('/upload') }}" enctype="multipart/form-data">
 
 					<fieldset class="form-group">
 						<div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
@@ -178,16 +178,31 @@
   					</fieldset>
 
   					<fieldset class="form-group">
-  					</fieldset>
-  
-  					<fieldset class="form-group">
-					    <label>Carregue seu TCC (apenas PDF)</label>
-					    <input type="file" name="work" class="form-control-file">
+						<div class="form-group{{ $errors->has('trabalho') ? ' has-error' : '' }}">
+					    	<label>Carregue seu TCC (apenas PDF)</label>
+						    <div>
+					    		<input type="file" name="work" class="form-control-file">
+						    	@if ($errors->has('trabalho'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('trabalho') }}</strong>
+                                    </span>
+                                @endif
+						    </div>
+						</div>
   					</fieldset>
 
   					<fieldset class="form-group">
-					    <label>Carregue sua autorização</label>
-					    <input type="file" name="authorization_file" class="form-control-file">
+						<div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+						    <label>Carregue a imagem do seu termo de autorização</label>
+						    <div>
+						    	<input type="file" name="authorization" class="form-control-file">
+						    	@if ($errors->has('image'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('image') }}</strong>
+                                    </span>
+                                @endif
+						    </div>
+						</div>
   					</fieldset>
 
   					{{ csrf_field() }}

@@ -10,6 +10,7 @@ use Validator;
 use App\Invite;
 use App\Work;
 use Mail;
+use Illuminate\Support\Facades\Input;
 
 class WorkController extends Controller
 {
@@ -71,12 +72,58 @@ class WorkController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('cadastrar')
-                            ->with('message', 'Erro ao cadastrar o trabalho. Por favor tente novamente')
-                            ->with('alert-class', 'alert-warning')
-                            ->with('errors', $validator->errors());
+            return redirect('/')
+                        ->with('message', 'Erro ao cadastrar o trabalho. Por favor tente novamente')
+                        ->with('alert-class', 'alert-warning')
+                        ->with('errors', $validator->errors());
         }
 
-        dd($request);
+        $files  = [
+            'image'     => Input::file('authorization'),
+            'trabalho'  => Input::file('work')
+        ];
+
+        $rules  = [
+            'image'     => 'mimes:jpeg,jpg,png,gif|required',
+            'trabalho'  => 'required'
+        ];
+        $validator = Validator::make($files, $rules);        
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('errors', $validator->errors());
+        }
+
+        /*
+        $rules            = array('work' => 'required');
+        $validator        = Validator::make($authorization, $rules);
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('errors', $validator->errors());
+        }
+        */
+
+        if (Input::file('authorization')->isValid()) {
+            $destinationPath = 'uploads';
+            $extension       = Input::file('authorization')->getClientOriginalExtension();
+            $fileName        = $this->createFileName($extension);
+
+            Input::file('authorization')->move($destinationPath, $fileName);
+
+            //Session::flash('success', 'Upload successfully');
+            return redirect('/');
+        }
+
+        
+
+        //validar PDF
+        //salvar registro de trabalho em PENDENTES
+        //excluir token da tabela de tokens
+        //redirect home com mensagem
+        
+    }
+
+    public function createFileName($extension, $lenght = 10)
+    {
+        return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $lenght).'.'.$extension;
     }
 }
