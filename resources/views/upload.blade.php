@@ -178,6 +178,19 @@
   					</fieldset>
 
   					<fieldset class="form-group">
+						<div class="form-group">
+						    <label>Selecione o seu curso</label>
+						    <div>
+						    	  <select class="form-control" name="curso" required>
+								    @foreach ($courses as $course)
+								    	<option value="{{ $course->id}}"> {{$course->name}} </option>
+								    @endforeach
+								  </select>
+						    </div>
+						</div>
+  					</fieldset>
+
+  					<fieldset class="form-group">
 						<div class="form-group{{ $errors->has('trabalho') ? ' has-error' : '' }}">
 					    	<label>Carregue seu TCC (apenas PDF)</label>
 						    <div>

@@ -72,10 +72,11 @@ class WorkController extends Controller
         ]);
 
         if ($validator->fails()) {
-            return redirect('/')
-                        ->with('message', 'Erro ao cadastrar o trabalho. Por favor tente novamente')
-                        ->with('alert-class', 'alert-warning')
-                        ->with('errors', $validator->errors());
+            return redirect()
+                    ->back()
+                    ->with('message', 'Erro ao cadastrar o trabalho. Por favor tente novamente')
+                    ->with('alert-class', 'alert-warning')
+                    ->with('errors', $validator->errors());
         }
 
         $files  = [
@@ -85,7 +86,7 @@ class WorkController extends Controller
 
         $rules  = [
             'image'     => 'mimes:jpeg,jpg,png,gif|required',
-            'trabalho'  => 'required'
+            'trabalho'  => 'mimes:pdf|required'
         ];
         $validator = Validator::make($files, $rules);        
 
@@ -93,37 +94,62 @@ class WorkController extends Controller
             return redirect()->back()->with('errors', $validator->errors());
         }
 
-        /*
-        $rules            = array('work' => 'required');
-        $validator        = Validator::make($authorization, $rules);
-
-        if ($validator->fails()) {
-            return redirect()->back()->with('errors', $validator->errors());
-        }
-        */
-
-        if (Input::file('authorization')->isValid()) {
+        if (Input::file('authorization')->isValid() and Input::file('work')->isValid()) {
             $destinationPath = 'uploads';
-            $extension       = Input::file('authorization')->getClientOriginalExtension();
-            $fileName        = $this->createFileName($extension);
 
-            Input::file('authorization')->move($destinationPath, $fileName);
+            $extensionAuthorization       = Input::file('authorization')->getClientOriginalExtension();
+            $extensionwork                = Input::file('work')->getClientOriginalExtension();
+            $authorizationName            = $this->createFileName($extensionAuthorization);
+            $workName                     = $this->createFileName($extensionwork);
 
-            //Session::flash('success', 'Upload successfully');
+            Input::file('authorization')->move($destinationPath, $authorizationName);
+            Input::file('work')->move($destinationPath, $workName);
+
+            $members   = $this->convertToString($request->member);
+            $examiners = $this->convertToString($request->examiner);
+            
+            $this->work->title              = $request->title;
+            $this->work->authors            = $members;
+            $this->work->user_email         = $request->email;
+            $this->work->advisor            = $request->advisor;
+            $this->work->examiners          = $examiners;
+            $this->work->description        = $request->description;
+            $this->work->url                = $destinationPath.'/'.$workName;
+            $this->work->authorization_file = $destinationPath.'/'.$authorizationName;
+            $this->work->course_id          = $request->curso;
+            $this->work->status             = 0;
+
+            $this->work->save();
+
+            //excluir token da tabela de tokens
+            //página de sucesso
+
             return redirect('/');
+            
         }
-
         
-
-        //validar PDF
-        //salvar registro de trabalho em PENDENTES
-        //excluir token da tabela de tokens
-        //redirect home com mensagem
-        
+        return redirect()->back()->with('errors', 'Arquivo inválido');
     }
 
     public function createFileName($extension, $lenght = 10)
     {
         return substr(str_shuffle("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"), 0, $lenght).'.'.$extension;
+    }
+
+    public function convertToString(array $resource)
+    {
+        $string = '';
+        
+        foreach ($resource as $i => $value) {
+            if (!empty($value) and $i == 0) {
+                $string = $value;
+            } else {
+                if (!empty($value)) {
+                    $string .= ', '.$value;
+                }                
+            }
+        }
+
+        return $string;
     }
 }

@@ -43,6 +43,11 @@ class GeneralController extends Controller
             abort(404);
         }
 
-        return view('upload');
+
+        $data = [
+            'courses' => Course::where('status', 1)->orderBy('name', 'asc')->get()
+        ];
+
+        return view('upload', $data);
     }
 }
