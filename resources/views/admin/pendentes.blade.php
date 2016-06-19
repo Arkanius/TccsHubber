@@ -20,7 +20,7 @@
                 <tbody>
                 @foreach ($works as $work)
                     <tr id="{{$work->id}}">
-                        <td>{{ $work->theme }}</td>
+                        <td>{{ $work->title }}</td>
                         <td>{{ $work->user_email }}</td>
                         <td>{{ $work->created_at->format('d/m/Y H:i:s') }}</td>
                         <td><a href="{{ $work->url }}">Download</td>                        

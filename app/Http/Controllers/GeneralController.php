@@ -28,8 +28,12 @@ class GeneralController extends Controller
     {
 
         $data = [
-            'works'   => Work::where('id', $request->id)->get(),
+            'works' => Work::where('id', $request->id)->where('status', 1)->get(),
         ];
+
+        if ($data['works']->isEmpty()) {
+        	abort(404);
+        }
 
         return view('description', $data);
     }

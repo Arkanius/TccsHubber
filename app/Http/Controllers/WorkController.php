@@ -50,15 +50,15 @@ class WorkController extends Controller
 
     public function manage(Request $request)
     {
-    	$action = $request['action'];
+        $action = $request['action'];
 
-    	$work = $this->work->find($request['resource_id']);
+        $work = $this->work->find($request['resource_id']);
 
-    	$work->status = $action;
+        $work->status = $action;
 
 
-    	echo json_encode(['message' => $action == 1 ? 'Trabalho aprovado com sucesso!' : 'Trabalho reprovado com sucesso', 
-    					  'status' => $work->save()]);
+        echo json_encode(['message' => $action == 1 ? 'Trabalho aprovado com sucesso!' : 'Trabalho reprovado com sucesso', 
+                          'status' => $work->save()]);
     }
 
     public function upload(Request $request)
@@ -119,12 +119,13 @@ class WorkController extends Controller
             $this->work->course_id          = $request->curso;
             $this->work->status             = 0;
 
+
             $this->work->save();
 
-            //excluir token da tabela de tokens
-            //página de sucesso
+            $token = $this->getTokenUrl($_SERVER['HTTP_REFERER']);
+            Invite::where('token', $token)->delete();
 
-            return redirect('/');
+            return view('sucesso');
             
         }
         
@@ -151,5 +152,11 @@ class WorkController extends Controller
         }
 
         return $string;
+    }
+
+    public function getTokenUrl($url)
+    {
+        $token =  explode('/', $url);
+        return end($token);
     }
 }

@@ -7,14 +7,14 @@
 
 				<fieldset class="borda">
 					<legend> Tema: </legend>
-					{{ $work->theme }}
+					{{ $work->title }}
 				</fieldset>
 			</div>
 
 			<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 
 				<fieldset class="borda">
-					<legend> Data da apresentação: </legend>
+					<legend> Data da aprovação: </legend>
 					{{ $work->created_at->format('d/m/Y') }}
 				</fieldset>
 			</div>
@@ -45,6 +45,6 @@
 			</div>
 		</div>
 
-		<h2 class="txt_download">Faça o download do TCC</h2>
+		<a class="btn btn-primary txt_download" href="{{url('/').'/'.$work->url}}">Faça o download do TCC</a>
 	@endforeach
 @stop

@@ -36,8 +36,8 @@
 				@foreach ($works as $work)
 					<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc">
-							<a href="{{url('/')}}/visualizar/{{$work->id}}">{{ $work->theme }}</a>
-							<spam class="txt_curso">{{ $work->name}}</spam>
+							<a href="{{url('/')}}/visualizar/{{$work->id}}">{{ $work->title }}</a>
+							<spam class="txt_curso">{{ $work->description}}</spam>
 						</div>
 					</div>
 				@endforeach

@@ -25,7 +25,7 @@ class Work extends Model
     {
         return DB::table('works')
                     ->join('courses', 'works.course_id', '=', 'courses.id')
-                    ->select('*')
+                    ->select('works.*')
                     ->where('works.status', $status)
                     ->get();
     }
@@ -34,7 +34,7 @@ class Work extends Model
     {
         return DB::table('works')
                     ->join('courses', 'works.course_id', '=', 'courses.id')
-                    ->select('*')
+                    ->select('works.*')
                     ->where('courses.id', $courseId)
                     ->where('courses.status', 1)
                     ->where('works.status', $status)

@@ -19,10 +19,10 @@
                 <tbody>
                 @foreach ($works as $work)
                     <tr id="{{$work->id}}">
-                        <td>{{ $work->theme }}</td>
+                        <td>{{ $work->title }}</td>
                         <td>{{ $work->user_email }}</td>
                         <td>{{ $work->created_at->format('d/m/Y H:i:s') }}</td>
-                        <td><a href="{{ $work->url }}">Download do arquivo</a><br><a>Download do termo de autorização</a></td>                        
+                        <td><a href="{{ $work->url }}">Download do arquivo</a><br><a  href="{{ $work->authorization_file }}">Download do termo de autorização</a></td>                        
                         <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reprovar o trabalho?" data-action="2"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Deletar</span></a></td>
                     </tr>
                 @endforeach
