@@ -54,4 +54,18 @@ class GeneralController extends Controller
 
         return view('upload', $data);
     }
+
+    public function search(Request $request)
+    {
+        if (!empty($request->item)) {
+        	$data = [
+        		'works'   => Work::where('title', 'like', '%'.$request->item.'%')->where('status', 1)->get(),
+                'courses' => Course::where('status', 1)->orderBy('name', 'asc')->get()
+        	];
+
+            return view('resultado', $data);
+        }
+
+        return view('index');
+    }
 }

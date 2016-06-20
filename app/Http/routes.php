@@ -20,6 +20,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/visualizar/{id}', 'GeneralController@show');
     Route::get('/upload/{token}', 'GeneralController@upload');
     Route::post('/upload', 'WorkController@upload');
+    Route::post('/pesquisa', 'GeneralController@search');
 
     /*** ADMIN ***/
     Route::auth();

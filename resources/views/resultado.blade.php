@@ -36,7 +36,7 @@
 				<div class="clear"></div>
 
 				<div class="main">
-					<h3 class="txt_postagens">Ultimos TCC's adicionados</h3>
+					<h3 class="txt_postagens">Resultados da busca</h3>
 					@foreach ($works as $work)
 						<div class="row">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc">

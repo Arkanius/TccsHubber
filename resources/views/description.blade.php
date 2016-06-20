@@ -45,6 +45,6 @@
 			</div>
 		</div>
 
-		<a class="btn btn-primary txt_download" href="{{url('/').'/'.$work->url}}">Faça o download do TCC</a>
+		<br><br><center><a class="btn btn-primary txt_download" href="{{url('/').'/'.$work->url}}">Faça o download do TCC</a></center><br><br>
 	@endforeach
 @stop
