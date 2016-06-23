@@ -56,9 +56,14 @@ class WorkController extends Controller
 
         $work->status = $action;
 
+        $result = $work->save();
+
+        $envio = $this->sendUploadEmail($action, $work->user_email,  url('/').'/'.$work->url);
 
         echo json_encode(['message' => $action == 1 ? 'Trabalho aprovado com sucesso!' : 'Trabalho reprovado com sucesso', 
-                          'status' => $work->save()]);
+                          'status' => $result,
+                          'envio'  => $envio
+                        ]);
     }
 
     public function upload(Request $request)
@@ -158,5 +163,25 @@ class WorkController extends Controller
     {
         $token =  explode('/', $url);
         return end($token);
+    }
+
+    public function sendUploadEmail($status, $email, $link)
+    {
+        $data = [
+            'email' => $email
+        ];
+
+        if ($status == 1) {
+            $data['message'] =  'Olá, o seu trabalho foi aprovado e está disponível em: '.$link;            
+        } else {
+            $data['message'] =  'Olá, o seu trabalho não foi aprovado, consulte a administração para saber o motivo.';
+        }
+
+        $envio = Mail::raw($data['message'], function($message) use ($data) {
+            $message->from('vtr.gomes@hotmail.com', 'Victor Gazotti');
+            $message->to($data['email'])->subject('Resultado de envio de trabalho - FATEC - São Caetano do Sul - Antonio Russo');
+        });
+
+        return $envio;
     }
 }
