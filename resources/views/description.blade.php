@@ -2,7 +2,7 @@
 
 @section('content')
 	@foreach ($works as $work)
-		<div class="row">
+		<div class="row main">
 			<div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
 
 				<fieldset class="borda">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-		<div class="row">
+		<div class="row main">
 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
 				<fieldset class="borda">
