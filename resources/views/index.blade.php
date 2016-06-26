@@ -36,7 +36,13 @@
 				<div class="clear"></div>
 
 				<div class="main">
+                @if ($currentCourse != '')
+                    @foreach ($currentCourse as $course)
+                        <h3 class="txt_postagens">Ultimos TCC's adicionados em {{ $course->name }}</h3>
+                    @endforeach
+                @else
 					<h3 class="txt_postagens">Ultimos TCC's adicionados</h3>
+                @endif
 					@foreach ($works as $work)
 						<div class="row" id="works_list">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc">

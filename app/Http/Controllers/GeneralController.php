@@ -17,8 +17,9 @@ class GeneralController extends Controller
         $work = new Work;
 
         $data = [
-            'works'   => $request->id ? $work->getWorksByCourse($request->id, 1) : $work->getWorksAndCourse(1),
-            'courses' => Course::where('status', 1)->get()
+            'works'   		=> $request->id ? $work->getWorksByCourse($request->id, 1) : $work->getWorksAndCourse(1),
+            'courses' 		=> Course::where('status', 1)->get(),
+            'currentCourse' => $request->id ? Course::where('id', $request->id)->get() : ''
         ];
 
         return view('index', $data);
