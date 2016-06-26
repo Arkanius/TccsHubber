@@ -21,23 +21,47 @@ class Work extends Model
     	return $this->hasOne('App\User', 'id', 'user_approved');
     }
 
-    public function getWorksAndCourse($status)
+    public function getWorksAndCourse($status, $skip = false)
     {
+        if ($skip === false) {        
+            return DB::table('works')
+                        ->join('courses', 'works.course_id', '=', 'courses.id')
+                        ->select('works.*')
+                        ->where('works.status', $status)
+                        ->take(5)
+                        ->get();
+        }
+
         return DB::table('works')
-                    ->join('courses', 'works.course_id', '=', 'courses.id')
-                    ->select('works.*')
-                    ->where('works.status', $status)
-                    ->get();
+            ->join('courses', 'works.course_id', '=', 'courses.id')
+            ->select('works.*')
+            ->where('works.status', $status)
+            ->take(5)
+            ->skip($skip)
+            ->get();
     }
 
-    public function getWorksByCourse($courseId, $status)
+    public function getWorksByCourse($courseId, $status, $skip = false)
     {
+        if ($skip === false) {   
+            return DB::table('works')
+                        ->join('courses', 'works.course_id', '=', 'courses.id')
+                        ->select('works.*')
+                        ->where('courses.id', $courseId)
+                        ->where('courses.status', 1)
+                        ->where('works.status', $status)
+                        ->take(5)
+                        ->get();
+        }
+
         return DB::table('works')
-                    ->join('courses', 'works.course_id', '=', 'courses.id')
-                    ->select('works.*')
-                    ->where('courses.id', $courseId)
-                    ->where('courses.status', 1)
-                    ->where('works.status', $status)
-                    ->get();
+                        ->join('courses', 'works.course_id', '=', 'courses.id')
+                        ->select('works.*')
+                        ->where('courses.id', $courseId)
+                        ->where('courses.status', 1)
+                        ->where('works.status', $status)
+                        ->take(5)
+                        ->skip($skip)
+                        ->get();
     }
 }

@@ -19,6 +19,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('/curso/{id}', 'GeneralController@home');
     Route::get('/visualizar/{id}', 'GeneralController@show');
     Route::get('/uploadfile/{token}', 'GeneralController@upload');
+    Route::get('/paginate', 'WorkController@paginate');
     Route::post('/upload', 'WorkController@upload');
     Route::post('/pesquisa', 'GeneralController@search');
 

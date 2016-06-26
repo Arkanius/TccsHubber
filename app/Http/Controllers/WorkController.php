@@ -15,10 +15,12 @@ use Illuminate\Support\Facades\Input;
 class WorkController extends Controller
 {
 	private $work;
+    private $worksPerPage;
 
 	public function __construct()
 	{
 		$this->work = new Work;
+        $this->worksPerPage = 5;
 	}
 
     public function resendToken(Request $request)
@@ -183,5 +185,37 @@ class WorkController extends Controller
         });
 
         return $envio;
+    }
+
+    public function getWorksPerPage()
+    {
+        return $this->worksPerPage;
+    }
+
+    public function paginate(Request $request)
+    {
+        $page   = $request->page;
+        $course = $request->course;
+        $skip   = ($page - 1) * $this->getWorksPerPage();
+
+        if (!empty($course)) {
+            $result = $this->work->getWorksByCourse($course, 1, $skip);
+        } else {
+            $result = $this->work->getWorksAndCourse(1, $skip);
+        }
+
+        $content = '';
+        $page++;
+
+        foreach ($result as $work) {
+            $content .='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc"><a '.url('/').'/visualizar/'.$work->id.'>'.$work->title.'</a><spam class="txt_curso">'.$work->description.'</spam></div>';
+        }
+
+        $data = [
+            'content'  => $content,
+            'nextPage' => $page,
+        ];
+
+        echo json_encode($data);
     }
 }

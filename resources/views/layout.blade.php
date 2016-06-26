@@ -33,25 +33,5 @@
 		</footer>
 		<script src="{{url('/')}}/js/jquery.js"></script>
 		<script src="{{url('/')}}/js/jquery.cbpFWSlider.min.js"></script>
-		<script>
-			$( function() {
-				/*
-				- how to call the plugin:
-				$( selector ).cbpFWSlider( [options] );
-				- options:
-				{
-					// default transition speed (ms)
-					speed : 500,
-					// default transition easing
-					easing : 'ease'
-				}
-				- destroy:
-				$( selector ).cbpFWSlider( 'destroy' );
-				*/
-
-				$( '#cbp-fwslider' ).cbpFWSlider();
-
-			} );
-		</script>
 	</body>
 </html>

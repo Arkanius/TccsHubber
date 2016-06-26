@@ -38,15 +38,56 @@
 				<div class="main">
 					<h3 class="txt_postagens">Ultimos TCC's adicionados</h3>
 					@foreach ($works as $work)
-						<div class="row">
+						<div class="row" id="works_list">
 							<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc">
 								<a href="{{url('/')}}/visualizar/{{$work->id}}">{{ $work->title }}</a>
 								<spam class="txt_curso">{{ $work->description}}</spam>
 							</div>
 						</div>
 					@endforeach
+                    <input type="hidden" id="page" value="2"/> 
 				</div>
 			</article>
 		</div>
 		<div class="clear"></div>
+
+		<script src="{{url('/')}}/js/jquery.js"></script>
+		<script>
+		$(document).ready(function() {
+
+            $(window).scroll(function() {
+                var page = parseInt($('#page').val());
+
+                if($(window).scrollTop() + $(window).height() == $(document).height()) {
+                    getContents(page, getLastUrlArgument());
+			    }
+			});
+    	});
+
+
+        function getContents(page, course_id)
+        {
+            $.ajax({
+                type: "GET",
+                url: "/paginate",
+                dataType: 'json',
+                data: {page: page, course: course_id},
+                
+                success: function(result) {
+                    $('#works_list').last().append(result.content);
+                    $('#page').val(parseInt(result.nextPage));
+                }
+
+            });
+        }
+
+        function getLastUrlArgument()
+        {
+            var url = window.location.href;
+            var lastArgument = url.split('/');
+
+            return lastArgument.pop();
+        }
+
+    	</script>
 @stop
