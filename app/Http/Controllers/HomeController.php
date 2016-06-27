@@ -32,8 +32,10 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = Auth::user();
         $data = [
-            'works' => Work::where('status', 0)->get()
+            'works'  => Work::where('status', 0)->get(),
+            'logged' => $user['attributes']['id']
         ];
 
         return view('admin.pendentes', $data);

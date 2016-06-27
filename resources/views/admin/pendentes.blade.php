@@ -4,6 +4,7 @@
 
 <h2 class="txt_pendentes">Trabalhos Pendentes</h2>
 
+    <input type="hidden" id="logged" value="{{ $logged }}" />
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
             <table id="listTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
@@ -85,11 +86,13 @@
 
         function manageResource(id, action) 
         {
+            var logged = $('#logged').val();
+
             $.ajax({
                 type: "POST",
                 url: "/gerenciar",
                 dataType: 'json',
-                data: {resource_id: id, action: action},
+                data: {resource_id: id, action: action, logged: logged},
 
                 success: function(result) {
                     if (result.status == 1) {

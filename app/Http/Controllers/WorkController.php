@@ -57,6 +57,7 @@ class WorkController extends Controller
         $work = $this->work->find($request['resource_id']);
 
         $work->status = $action;
+        $work->user_approved = $request['logged'];
 
         $result = $work->save();
 
