@@ -22,7 +22,7 @@
 						<a href="index.html"><h1 class="titulo">Sistema Academico de TCC</h1></a>
 					</div>
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-						<button class="btn btn-success termo"><a href="">TERMO DE AUTORIZAÇÃO</a></button>
+						<button class="btn btn-success termo"><a href="{{url('/')}}/uploads/termo-de-autorizacao.pdf">TERMO DE AUTORIZAÇÃO</a></button>
 					</div>	
 				</div>
 			</div>
