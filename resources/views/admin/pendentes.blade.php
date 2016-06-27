@@ -23,7 +23,7 @@
                         <td>{{ $work->title }}</td>
                         <td>{{ $work->user_email }}</td>
                         <td>{{ $work->created_at->format('d/m/Y H:i:s') }}</td>
-                        <td><a href="{{ $work->url }}">Download</td>                        
+                        <td><a href="{{ $work->url }}">Download do arquivo</a><br><a  href="{{ $work->authorization_file }}">Download do termo de autorização</a></td>                        
                         <td><a class="btn btn-success" href="{{$work->id}}" data-confirm="Deseja realmente aprovar o trabalho?" data-action="1"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Aprovar</span></a></td>
                         <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reprovar o trabalho?" data-action="2"><span class="glyphicon glyphicon-ok" aria-hidden="true"> Reprovar</span></a></td>
                     </tr>

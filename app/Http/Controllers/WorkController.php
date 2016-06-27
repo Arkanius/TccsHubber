@@ -208,7 +208,7 @@ class WorkController extends Controller
         $page++;
 
         foreach ($result as $work) {
-            $content .='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc"><a '.url('/').'/visualizar/'.$work->id.'>'.$work->title.'</a><spam class="txt_curso">'.$work->description.'</spam></div>';
+            $content .='<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 box_tcc"><a href="'.url('/').'/visualizar/'.$work->id.'">'.$work->title.'</a><spam class="txt_curso">'.$work->description.'</spam></div>';
         }
 
         $data = [
