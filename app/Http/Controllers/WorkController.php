@@ -54,6 +54,13 @@ class WorkController extends Controller
     {
         $action = $request['action'];
 
+        /*if ($action == 3) {
+            $work = $this->work->find($request['resource_id']);
+            $work->delete();
+
+            return $this->resendToken()
+        }
+        */
         $work = $this->work->find($request['resource_id']);
 
         $work->status = $action;
