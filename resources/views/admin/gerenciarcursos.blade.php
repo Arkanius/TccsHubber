@@ -27,7 +27,11 @@
 		        <td name="status">{{ $course->status == 1 ? 'Ativo' : 'Inativo' }}</td>
 		        <td>
 		        	<a class="btn btn-success" href="/editar-curso/{{$course->id}}">Editar</a>
-		        	<a data-confirm="Deseja realmente inabilitar o curso?" class="btn btn-danger" href="{{$course->id}}">Desabilitar</a>
+		        	@if ($course->status == 0)
+		        		<a id="btn_disable" data-confirm="Deseja realmente inabilitar o curso?" class="btn btn-danger disabled" href="{{$course->id}}">Desabilitar</a>
+		        	@else
+		        		<a id="btn_disable" data-confirm="Deseja realmente inabilitar o curso?" class="btn btn-danger" href="{{$course->id}}">Desabilitar</a>
+		        	@endif
 		        </td>
       		</tr>
 		@endforeach
@@ -112,6 +116,7 @@
 	{
 		var killrow = $('tr[id="'+id+'"]');
 		killrow.children('td[name="status"]').text('Inativo');
+		killrow.find('#btn_disable').attr('disabled', true);
 	}
 
 	function resetModal()
