@@ -1,0 +1,228 @@
+body{
+    font-family: abel;
+    
+}
+
+legend{
+    border-bottom:#ff0000;
+}
+
+.titulo{
+    font-family: abel;
+    font-size: 38px;
+    display: block;
+    color:black;
+    float:left;
+    margin-bottom: 60px;
+    padding-left: 50px;
+    margin-top: 60px;
+}
+
+.titulo a{
+    color: black;
+}
+
+
+
+.borda{
+    border-color: red;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.main{
+    padding-right: 50px;
+    padding-left: 50px;
+}
+
+.clear{
+    clear:both;
+}
+
+.download img{
+    height: 80px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.txt_download{
+    font-family: abel;
+    font-size: 18px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.login{
+    margin-top: 30px;
+    background: none;
+}
+
+
+.imagem{
+    height: 50px;
+}
+
+.box_login{
+    float:right;
+    background: none;
+    width: 48%;
+    margin-right: 20px;
+    margin-top: 30px;
+}
+
+.box_login input{
+    float: left;
+    width: 65%;
+    margin-bottom: 5px;
+}
+
+.btn_login{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.btn_ads{
+    font-family: abel;
+    font-size: 18px;
+    text-transform: uppercase;
+    font-weight: 700;
+    border: none;
+    padding: 10px;
+    cursor:pointer;
+    
+}
+
+.btn_ads a{
+    color:#fff;
+    margin-bottom: 10px;
+}
+
+.btn_ads:hover a{
+    text-decoration: none;
+    color:#fff;
+}
+
+.btn_orange{    
+    background: orange;
+    color:#fff;
+    box-shadow: 0 5px #FF8C00;
+    margin-bottom: 10px;
+}
+
+.btn_orange:hover{
+    background: #FF8C00;
+    color:#fff;
+    box-shadow: 0 5px #FF4500;
+    text-decoration: none;
+}
+
+.btn_orange:active{
+    position: relative;
+    top: 5px;
+    box-shadow:none;
+}
+
+
+
+.txt_postagens{
+    font-family: abel;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    color:orange;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.box_tcc{
+    border:groove;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: orange;
+    padding: 10px 10px 10px 10px;
+    margin-bottom: 15px;
+}
+
+.box_tcc a{
+    font-family: abel;
+    font-size: 25px;
+    text-decoration: none;
+    color: black;
+}
+
+.txt_curso{
+    font-family: abel;
+    font-size: 20px;
+    font-weight: 500;
+    color:black;
+    display: block;
+}
+
+.footer{
+/*    background: orange;*/
+    height: 35px;
+    width: 100%;
+}
+
+.copyright{
+    font-family: abel;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    color:#fff;
+}
+
+.txt_categoria{
+    font-family: abel;
+    font-size: 48px;
+    font-weight: 700;
+    text-align: center;
+    display: block;
+    color: orange;
+    margin: 80px 0 80px 0;
+}
+
+.borda_login{
+    color: orange;
+}
+
+.box-login{
+    width: 400px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.form_login{
+    padding-left: 95px;
+    padding-right: 95px;
+}
+
+.txt_login input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.txt_senha input{
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+
+.txt_admin{
+    text-align: center;
+    color: orange;
+    font-weight: 700;
+    font-family: abel;
+    margin-bottom: 20px;
+}
+
+.txt_pendentes{
+    display: block;
+    text-align: center;
+    color: grey;
+    font-weight: 700;
+    font-family: abel;
+    margin-bottom: 20px;    
+}
