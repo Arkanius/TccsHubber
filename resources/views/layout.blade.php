@@ -19,7 +19,7 @@
 			<div class="main">
 				<div class="row">
 					<div class="col-xs-12 col-sm-7 col-md-7 col-lg-7">
-						<a href="index.html"><h1 class="titulo">Sistema Academico de TCC</h1></a>
+						<a href="{{url('/')}}"><h1 class="titulo">Sistema Academico de TCC</h1></a>
 					</div>
 					<div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
 						<button class="btn btn-success termo"><a href="{{url('/')}}/uploads/termo-de-autorizacao.pdf">TERMO DE AUTORIZAÇÃO</a></button>
