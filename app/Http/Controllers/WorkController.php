@@ -23,12 +23,12 @@ class WorkController extends Controller
         $this->worksPerPage = 5;
 	}
 
-    public function resendToken(Request $request)
+    public function resendToken($id)
     {
         $invite = new Invite;
 
-        $data   = $request->all();
-        $work   = $this->work->find($data['resource_id']);
+        $data   = [];
+        $work   = $this->work->find($id);
         $token  = $invite->createToken();
 
         $data['email']  = $work->user_email;
@@ -53,14 +53,21 @@ class WorkController extends Controller
     public function manage(Request $request)
     {
         $action = $request['action'];
+        $data   = [];
 
-        /*if ($action == 3) {
-            $work = $this->work->find($request['resource_id']);
-            $work->delete();
+        if ($action == 3) {
+            if ($this->resendToken($request['resource_id']) == 1) {
+                $data['message'] = "Convite reenviado com sucesso!";
+                $data['status']  = 1;
+            } else {
+                $data['message'] = "Erro ao reenviar o convite!";
+                $data['status']  = 0;
+            }
 
-            return $this->resendToken()
+            echo json_encode($data);
+            return;
         }
-        */
+        
         $work = $this->work->find($request['resource_id']);
 
         $work->status = $action;

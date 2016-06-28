@@ -273,4 +273,49 @@ legend{
 	.termo{
 		margin-left: 70px;
 	}
+
+	.banner{
+		width: 100%;
+        padding: 0px 20px 0 20px;	
+	}
 }
+
+@media screen and (max-width: 415px){
+	.banner{
+		width: 100%;
+        padding: 0px 10px 0 10px;
+        margin-top: 25px;	
+	}
+	
+	.termo{
+		margin-left: 60px;
+	}
+}
+
+@media screen and (max-width: 375px){
+	.termo{
+		margin-left: 40px;
+	}
+}
+
+@media screen and (max-width: 360px){
+	.banner{
+		width: 100%;
+        padding: 0px 20px 0 20px;	
+	}
+	.termo{
+		margin-left: 30px;
+	}
+}
+
+@media screen and (max-width: 320px){
+	.banner{
+		width: 100%;
+        padding: 0px 10px 0 10px;
+        margin-top: 25px;	
+	}
+	.termo{
+		margin-left: 10px;
+	}
+}
+

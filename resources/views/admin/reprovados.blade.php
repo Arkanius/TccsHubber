@@ -23,7 +23,7 @@
                         <td>{{ $work->title }}</td>
                         <td>{{ $work->user_email }}</td>
                         <td><a href="{{ $work->url }}">Download do arquivo</a><br><a  href="{{ $work->authorization_file }}">Download do termo de autorização</a></td>                        
-                        <td><a class="btn btn-danger" href="{{$work->id}}" data-confirm="Deseja realmente reenviar o token?"><span class="glyphicon glyphicon-ok" aria-hidden="true" href="{{ $work->url }}"> Reenviar</span></a></td>
+                        <td><a class="btn btn-danger" data-action="3" href="{{$work->id}}" data-confirm="Deseja realmente reenviar o token?"><span class="glyphicon glyphicon-ok" aria-hidden="true" href="{{ $work->url }}"> Reenviar</span></a></td>
                         <td>{{ $work->updated_at->format('d/m/Y H:i:s') }}</td>
                         <td>{{ $work->user->name }}</td>                        
                     </tr>
@@ -99,12 +99,12 @@ $(document).ready(function() {
 
                 success: function(result) {
                     if (result == 1) {
-                        $('#dataConfirmModal').find('.modal-body').text('Token reenviado com sucesso!');
+                        $('#dataConfirmModal').find('.modal-body').text('Convite reenviado com sucesso!');
                         $('#dataConfirmOK').hide();
                         $('#closeModal').text('Fechar');
                         deleteRow(id);                  
                     } else {
-                        $('#dataConfirmModal').find('.modal-body').text('Erro ao reenviar o token!');
+                        $('#dataConfirmModal').find('.modal-body').text('Erro ao reenviar o convite!');
                         $('#dataConfirmOK').hide();
                         $('#closeModal').text('Fechar');
                     }
